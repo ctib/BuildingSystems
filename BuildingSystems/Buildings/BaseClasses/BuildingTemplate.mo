@@ -21,12 +21,9 @@ partial model BuildingTemplate
   parameter Modelica.SIunits.SurfaceCoefficientOfHeatTransfer alphaConstant= 10.0
     "Convective heat transfer coefficient for simplified calculations"
     annotation(Dialog(tab="Advanced",group="Convection model on building facades"));
-  parameter Integer gridSurface[surfacesToAmbient.nSurfaces,2]=fill({1,1},surfacesToAmbient.nSurfaces)
-    "Grid in y and z dimension of each surface"
-    annotation(Dialog(tab = "Advanced", group = "3D discretisation"), HideResult=true);
   parameter Integer nSurfacesSolid = 0
     "Number of surfaces (with contact to solids) to the building ambient"
-    annotation(Dialog(tab="General",group="Ports"));
+    annotation(Dialog(tab="General",group="Solid building ambient"));
   parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg angleDegAziBuilding = 0.0
     "Azimuth angle of the building: south: 0 deg, east: -90 deg, west +90 deg, north: 180 deg"
     annotation(Dialog(tab="General",group="Orientation"));
@@ -57,6 +54,12 @@ partial model BuildingTemplate
   parameter Boolean show_xAir = false
     "Show air humidity of each building zone as an output (vector)"
     annotation(HideResult = true,Dialog(tab="Advanced",group="Optional"));
+  parameter Boolean show_TSur = false
+    "Show suface temperatures of each building element as an output (vector)"
+    annotation(HideResult = true,Dialog(tab="Advanced",group="Optional"));
+  parameter Integer nSurfaces = 0
+    "if show_TSur = true: Overall number of building surfaces"
+    annotation(Dialog(tab = "Advanced", group = "Optional"), HideResult=true);
   input BuildingSystems.Interfaces.Temp_KInput T_setHeating[nZones] if calcIdealLoads
     "Set air temperature for heating of each thermal zone"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=180, origin={180,80}), iconTransformation(extent={{-10,-10},{10,10}},rotation=180,origin={98,80})));
@@ -78,6 +81,9 @@ partial model BuildingTemplate
   output BuildingSystems.Interfaces.Moisture_absOutput xAir[nZones] if show_xAir
     "Air humidity  of each thermal zone" annotation (Placement(transformation(
     extent={{180,-100},{200,-80}}), iconTransformation(extent={{180,-100},{200,-80}})));
+  output BuildingSystems.Interfaces.Temp_KOutput TSur[nSurfaces] if show_TSur
+    "Surface temperatures of the individual building elements"
+    annotation (Placement(transformation(extent={{180,-60},{200,-40}}),iconTransformation(extent={{180,-60},{200,-40}})));
   output BuildingSystems.Interfaces.HeatFlowRateOutput Q_flow_cooling[nZones] if calcIdealLoads
     "Cooling power of each thermal zone"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=270,origin={-80,-122}), iconTransformation(extent={{-10,-10},{10,10}},rotation=270,origin={-90,-110})));
@@ -86,24 +92,20 @@ partial model BuildingTemplate
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=270,origin={80,-122}),  iconTransformation(extent={{-10,-10},{10,10}},rotation=270,origin={90,-110})));
   Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_b toAmbientAirpathPorts[nAirpathes](
     redeclare each final package Medium = Medium) if useAirPathes
+    "Interfaces for air pathes to the building ambient"
     annotation (Placement(transformation(extent={{-40,-10},{40,10}},rotation=90,origin={180,1}),iconTransformation(extent={{-40,-90},{40,-70}},rotation=270,origin={170,-20})));
-  BuildingSystems.Buildings.Interfaces.SurfaceToSurfacesPorts toAmbientSurfacesPorts[nSurfacesAmbient](
-    nY=gridSurface[:,1],
-    nZ=gridSurface[:,2])
+  BuildingSystems.Buildings.Interfaces.SurfaceToSurfacesPorts toAmbientSurfacesPorts[nSurfacesAmbient]
     "Interfaces between outside building surfaces to surfaces of the building ambient"
     annotation (Placement(transformation(extent={{-8,-30},{8,30}},rotation=180,origin={-180,40}),iconTransformation(extent={{-100,0},{-80,80}})));
-  BuildingSystems.Buildings.Interfaces.SurfaceToAirPorts toAmbientAirPorts[nSurfacesAmbient](
-    nY=gridSurface[:,1],
-    nZ=gridSurface[:,2])
+  BuildingSystems.Buildings.Interfaces.SurfaceToAirPorts toAmbientAirPorts[nSurfacesAmbient]
     "Interfaces between outside building surfaces to the air of the building ambient"
     annotation (Placement(transformation(extent={{-8,-30},{8,30}}, rotation=180,origin={-180,-40}),iconTransformation(extent={{-100,-80},{-80,0}})));
   BuildingSystems.Buildings.Surfaces.SurfacesToAir surfacesToAmbient(
-    gridSurface=gridSurface,
     surface(each convectionOnSurface = convectionOnSurfaces,
     each alphaConstant = alphaConstant))
     "Model for all building surfaces to the building ambient"
     annotation (Placement(transformation(extent={{-31,-28},{31,28}},rotation=180,origin={-177,0})));
-  BuildingSystems.Interfaces.HeatPort2D toSolidHeatPorts[nSurfacesSolid]
+  BuildingSystems.Interfaces.HeatPorts toSolidHeatPorts[nSurfacesSolid]
     "Heat port to the ground under the building"
     annotation (Placement(transformation(extent={{-8,-8},{8,8}},rotation=180,origin={-42,-118}),iconTransformation(extent={{-80,-100},{0,-80}})));
   BuildingSystems.Interfaces.HeatPorts conHeatSourcesPorts[nHeatSources] if heatSources
@@ -115,7 +117,7 @@ partial model BuildingTemplate
   BuildingSystems.Interfaces.MoisturePorts moisturePorts[nMoistureSources] if moistureSources
     "Moisture port to internal moisture sources"
     annotation (Placement(transformation(extent={{-98,110},{-78,130}}),iconTransformation(extent={{-40,90},{-20,110}})));
-  BuildingSystems.Interfaces.MoisturePort2D toSolidMoisturePorts[nSurfacesSolid] if calcHygroThermal
+  BuildingSystems.Interfaces.MoisturePorts toSolidMoisturePorts[nSurfacesSolid] if calcHygroThermal
     "Mosture port to the ground under the building"
     annotation (Placement(transformation(extent={{-8,-8},{8,8}},rotation=180,origin={42,-118}),iconTransformation(extent={{0,-100},{80,-80}})));
   BuildingSystems.Buildings.Surfaces.SurfacesToSolids surfacesToSolids(calcHygroThermal=calcHygroThermal,nSurfaces=nSurfacesSolid)
@@ -151,5 +153,17 @@ equation
     Rectangle(extent={{50,-38},{70,-78}},pattern=LinePattern.None,lineColor={0,0,0},fillColor={170,213,255},fillPattern = FillPattern.Solid),
     Rectangle(extent={{-70,-38},{-50,-78}},pattern=LinePattern.None,lineColor={0,0,0},fillColor={170,213,255},fillPattern = FillPattern.Solid),
     Text(extent={{102,-94},{194,-122}},lineColor={0,0,255},fillColor={230,230,230},fillPattern = FillPattern.Solid,textString = "%name")}),
-    Diagram(coordinateSystem(extent={{-180,-120},{180,120}}, initialScale=0.1)));
+    Diagram(coordinateSystem(extent={{-180,-120},{180,120}}, initialScale=0.1)),
+Documentation(info="<html>
+<p>
+This is partial model description of a building template.
+</p>
+</html>", revisions="<html>
+<ul>
+<li>
+May 23, 2015 by Christoph Nytsch-Geusen:<br/>
+First implementation.
+</li>
+</ul>
+</html>"));
 end BuildingTemplate;

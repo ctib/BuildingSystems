@@ -9,13 +9,13 @@ model BuildingThermal1Zone1D
     surfacesToAmbient(nSurfaces=6),
     convectionOnSurfaces=BuildingSystems.HAM.ConvectiveHeatTransfer.Types.Convection.forced,
     useAirPathes = false);
-
-    BuildingSystems.Buildings.Data.Constructions.OpaqueThermalConstruction  construction1(
+    record Construction
+      extends BuildingSystems.Buildings.Data.Constructions.OpaqueThermalConstruction(
       nLayers=2,
       thickness={0.2,0.1},
       material={BuildingSystems.HAM.Data.MaterialProperties.Thermal.Concrete(),
-      BuildingSystems.HAM.Data.MaterialProperties.Thermal.Insulation()})
-      annotation(Placement(transformation(extent={{-34,40},{-14,60}})));
+        BuildingSystems.HAM.Data.MaterialProperties.Thermal.Insulation()});
+    end Construction;
     BuildingSystems.Buildings.Zones.ZoneTemplateAirvolumeMixed zone1(
       V = 4.0*4.0*2.5,
       height = 2.5,
@@ -30,32 +30,30 @@ model BuildingThermal1Zone1D
       width=4.0,
       angleDegAzi=90.0,
       angleDegTil=90.0,
-      constructionData=construction1)
+      redeclare Construction constructionData)
       annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
     BuildingSystems.Buildings.Constructions.Walls.WallThermal1DNodes wall3(
       height=2.5,
       width=4.0,
       angleDegAzi=-90.0,
       angleDegTil=90.0,
-      constructionData=construction1)
+      redeclare Construction constructionData)
       annotation (Placement(transformation(extent={{10,-10},{30,10}})));
     BuildingSystems.Buildings.Constructions.Walls.WallThermal1DNodes wall2(
       height=2.5,
       width=4.0,
       angleDegAzi=180.0,
       angleDegTil=90.0,
-      nInnSur = 1,
-      AInnSur={window2.A},
-      constructionData=construction1)
+      AInnSur=window2.ASur,
+      redeclare Construction constructionData)
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=90,origin={-12,20})));
     BuildingSystems.Buildings.Constructions.Walls.WallThermal1DNodes wall4(
       height=2.5,
       width=4.0,
       angleDegAzi=0.0,
       angleDegTil=90.0,
-      nInnSur = 1,
-      AInnSur={window4.A},
-      constructionData=construction1)
+      AInnSur=window4.ASur,
+      redeclare Construction constructionData)
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=90,origin={-12,-20})));
     BuildingSystems.Buildings.Constructions.Windows.Window window2(
       height=1.0,
@@ -168,7 +166,8 @@ model BuildingThermal1Zone1D
   end Building;
 
   BuildingSystems.Buildings.Ambient ambient(
-    nSurfaces=building.nSurfacesAmbient,weatherDataFile=BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_Germany_Berlin())
+    nSurfaces=building.nSurfacesAmbient,
+    redeclare BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_Germany_Berlin weatherDataFile)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
   Building building(nZones=1)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));

@@ -1,7 +1,9 @@
 within BuildingSystems.Technologies.Photovoltaics.PVModules;
 model PVModuleComplex
-  "Two diodes photovoltaic module model MPP"
-  extends BuildingSystems.Technologies.Photovoltaics.BaseClasses.PVModuleGeneral;
+  "Two diodes photovoltaic module model"
+  extends BuildingSystems.Technologies.Photovoltaics.BaseClasses.PVModuleGeneral(
+    angleDegTil_constant = 30,
+    angleDegAzi_constant = 0.0);
   BuildingSystems.Technologies.Photovoltaics.BaseClasses.OpticalModels.OpticalModelSimple opticalModel
     "Optical model of the photovoltaic generator"
     annotation (Placement(transformation(extent={{-18,-10},{2,10}})));
@@ -17,9 +19,8 @@ model PVModuleComplex
     RSer= pvModuleData.RSer)
     "Electrical model of the photovoltaic generator"
     annotation (Placement(transformation(extent={{42,-6},{62,14}})));
-  BuildingSystems.Technologies.Photovoltaics.BaseClasses.ThermalModels.ThermalModelComplex thermalModel(
-    width=pvModuleData.width,
-    height=pvModuleData.height)
+  BuildingSystems.Technologies.Photovoltaics.BaseClasses.ThermalModels.ThermalModelSimple thermalModel(
+    f = 0.043)
     "Thermal model of the photovoltaic generator"
     annotation (Placement(transformation(extent={{20,10},{40,30}})));
   Modelica.Blocks.Math.Gain gainP(k=nModSer*nModPar)
@@ -59,5 +60,19 @@ equation
   connect(opticalModel.ITotRed, thermalModel.ITot)
     annotation (Line(points={{-1,0},{10,0},{20,0},{20,18},{23,18}}, color={0,0,127}));
 
-  annotation (defaultComponentName="pvmodule", Icon(graphics={Text(extent={{-48,60},{-16,30}},lineColor={255,255,255},fillColor={0,0,255},fillPattern=FillPattern.Solid,textString="C")}));
+  annotation (defaultComponentName="pvmodule",
+    Icon(graphics={Text(extent={{-48,60},{-16,30}},lineColor={255,255,255},
+    fillColor={0,0,255},fillPattern=FillPattern.Solid,textString="C")}),
+Documentation(info="<html>
+<p>
+This is a two diodes model of a PV module.
+</p>
+</html>", revisions="<html>
+<ul>
+<li>
+March 1, 2015 by Christoph Nytsch-Geusen:<br/>
+First implementation.
+</li>
+</ul>
+</html>"));
 end PVModuleComplex;

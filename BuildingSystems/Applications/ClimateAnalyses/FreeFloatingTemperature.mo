@@ -9,19 +9,19 @@ model FreeFloatingTemperature
       nAirpathes=building.nAirpathes)
       annotation (Placement(transformation(extent={{-40,-28},{-20,-8}})));
     BuildingSystems.Buildings.BuildingTemplates.Building1Zone0D building(
-      AAmbient=2.8*(4.0+4.0+6.0+6.0) + 4.0*6.0, // building shape: 4 m x 6 m x 2.8 m
-      AInner=3.3*2.8*2.0,
-      AGround=4.0*6.0,
+      AAmb=2.8*(4.0+4.0+6.0+6.0) + 4.0*6.0, // building shape: 4 m x 6 m x 2.8 m
+      AInn=3.3*2.8*2.0,
+      AGro=4.0*6.0,
       nWindows=1,
-      AWindow={2.0*1.6},
+      AWin={2.0*1.6},
       VAir=4.0*6.0*2.8,
-      CAmbient=55347250.0,
-      CInner=4435200.0,
-      CGround=480000.0,
-      UValAmbient=1.0,
-      UValInner=4.0,
-      UValGround=1.0,
-      UValWindow={2.0},
+      CAmb=55347250.0,
+      CInn=4435200.0,
+      CGro=480000.0,
+      UValAmb=1.0,
+      UValInn=4.0,
+      UValGro=1.0,
+      UValWin={2.0},
       calcIdealLoads=false)
       annotation (Placement(transformation(extent={{-10,-28},{10,-8}})));
 
@@ -61,32 +61,32 @@ model FreeFloatingTemperature
       Text(extent={{-42,-16},{42,-38}},lineColor={0,0,255},fillColor={230,230,230},fillPattern=  FillPattern.Solid,textString= "%name")}));
   end Location;
 
-  //Location AmundsenScott(
-  //  ambient(weatherDataFile=BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_SouthPole_AmundsenScott()))
-  //  annotation (Placement(transformation(extent={{-5,-84},{5,-74}})));
+  Location AmundsenScott(
+    ambient(redeclare BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_SouthPole_AmundsenScott weatherDataFile))
+    annotation (Placement(transformation(extent={{-5,-84},{5,-74}})));
   Location SanFrancisco(
-    ambient(weatherDataFile=BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_USA_SanFrancisco()))
+    ambient(redeclare BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_USA_SanFrancisco weatherDataFile))
     annotation (Placement(transformation(extent={{-91,44},{-81,54}})));
-  Location ElGouna(ambient(
-    weatherDataFile=BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_Egypt_ElGouna()))
+  Location ElGouna(
+    ambient(redeclare BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_Egypt_ElGouna weatherDataFile))
     annotation (Placement(transformation(extent={{19,30},{29,40}})));
   Location Berlin(
-    ambient(weatherDataFile=BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_Germany_Berlin()))
+    ambient(redeclare BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_Germany_Berlin weatherDataFile))
     annotation (Placement(transformation(extent={{3,52},{13,62}})));
   Location NewYork(
-    ambient(weatherDataFile=BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_USA_NewYork()))
+    ambient(redeclare BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_USA_NewYork weatherDataFile))
     annotation (Placement(transformation(extent={{-61,38},{-51,48}})));
-  Location Tokyo(ambient(
-    weatherDataFile=BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_Japan_Tokyo()))
+  Location Tokyo(
+    ambient(redeclare BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_Japan_Tokyo  weatherDataFile))
     annotation (Placement(transformation(extent={{95,42},{105,52}})));
   Location Moscow(
-    ambient(weatherDataFile=BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_Russia_Moscow()))
+    ambient(redeclare BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_Russia_Moscow weatherDataFile))
     annotation (Placement(transformation(extent={{15,56},{25,66}})));
   Location Bombay(
-    ambient(weatherDataFile=BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_India_Bombay()))
+    ambient(redeclare BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_India_Bombay weatherDataFile))
     annotation (Placement(transformation(extent={{53,20},{63,30}})));
 
-    annotation(experiment(StartTime=0, StopTime=31536000,Interval=3600),
+    annotation(experiment(StartTime=0, StopTime=31536000),
       __Dymola_Commands(file="modelica://BuildingSystems/Resources/Scripts/Dymola/Applications/ClimateAnalyses/FreeFloatingTemperature.mos" "Simulate and plot"),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-150,-100},{150,100}}), graphics={Text(extent={{-128,-20},{120,-162}}, lineColor={0,0,255},
       textString="Free floating temperature within a building at different climate locations"), Bitmap(

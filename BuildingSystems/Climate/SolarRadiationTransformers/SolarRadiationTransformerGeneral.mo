@@ -1,13 +1,18 @@
 within BuildingSystems.Climate.SolarRadiationTransformers;
 partial model SolarRadiationTransformerGeneral
   "Solar radiation calculation on a tilted surface (general model)"
-  parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg latitudeDeg
-    "Latitude of the location";
-  parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg longitudeDeg
-    "Longitude of the location";
-  parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg longitudeDeg0
-    "Longitude of the local time zone";
-  parameter Real rhoAmb "Reflection factor of the ambience";
+
+  input BuildingSystems.Interfaces.Angle_degInput latitudeDeg
+    "Latitude of the location"
+    annotation (Placement(transformation(extent={{-20,-20},{20,20}},rotation=270,origin={-10,88}),iconTransformation(extent={{-14,-14},{14,14}},rotation=270,origin={-38,76})));
+  input BuildingSystems.Interfaces.Angle_degInput longitudeDeg
+    "Longitude of the location"
+    annotation (Placement(transformation(extent={{-20,-20},{20,20}},rotation=270,origin={-50,88}),iconTransformation(extent={{-14,-14},{14,14}},rotation=270,origin={0,76})));
+  input BuildingSystems.Interfaces.Angle_degInput longitudeDeg0
+    "Longitude of the local time zone"
+    annotation (Placement(transformation(extent={{-20,-20},{20,20}},rotation=270,origin={30,88}),iconTransformation(extent={{-14,-14},{14,14}},rotation=270,origin={40,76})));
+  parameter Real rhoAmb
+    "Reflection factor of the ambience";
   parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg angleDegL = 0
     "Grad correction winter-/summer time";
   input BuildingSystems.Interfaces.RadiantEnergyFluenceRateInput IrrDirHor
@@ -29,12 +34,13 @@ partial model SolarRadiationTransformerGeneral
   input BuildingSystems.Interfaces.Angle_degInput angleDegTil
     "Tilt angle of the surface"
     annotation (Placement(transformation(extent={{-102,-46},{-62,-6}}), iconTransformation(extent={{-90,-34},{-62,-6}})));
-  Modelica.SIunits.Conversions.NonSIunits.Angle_deg angleZen "Zenith angle";
-  Real cosAngleDegAzi
+  Modelica.SIunits.Conversions.NonSIunits.Angle_deg angleDegZen
+    "Zenith angle";
+  Real cosAngleAzi
     "Cosinus of the azimuth angle";
-  Real cosAngleDegInc
+  Real cosAngleInc
     "Cosinus of the incidence angle";
-  Real cosAngleDegTil
+  Real cosAngleTil
     "Cosinus of the tilt angle";
   Real cosAngleZen
     "Cosinus of the zenith angle";
@@ -42,11 +48,11 @@ partial model SolarRadiationTransformerGeneral
     "Declination angle of the sun";
   Modelica.SIunits.Angle angleHr
     "Hour angle of the sun";
-  Real R
-    "R-factor for solar beam radiation";
-  Real sinangleDegAzi
+  Modelica.SIunits.RadiantEnergyFluenceRate IrrDirNor
+    "Direct normal solar irradiance";
+  Real sinAngleAzi
     "Sinus of the azimuth angle";
-  Real sinangleDegTil
+  Real sinAngleTil
     "Sinus of the tilt angle";
   BuildingSystems.Types.Time_hr timeSun
     "Solar time";
@@ -56,10 +62,9 @@ partial model SolarRadiationTransformerGeneral
     "Helping variable";
   Real Z
     "Shift factor";
-protected
-  parameter Real sinAngleLat = sin(latitudeDeg * Modelica.Constants.pi / 180.0)
+  Real sinAngleLat = sin(latitudeDeg * Modelica.Constants.pi / 180.0)
     "Sinus of the latitude";
-  parameter Real cosAngleLat = cos(latitudeDeg * Modelica.Constants.pi / 180.0)
+  Real cosAngleLat = cos(latitudeDeg * Modelica.Constants.pi / 180.0)
     "Cosinus of the latitude";
 equation
   dayOfYear = time / (3600.0 * 24.0) + 0.5;
@@ -75,37 +80,70 @@ equation
   angleHr = 15.0 * (timeSun - 12.0) * Modelica.Constants.pi / 180.0;
 
   cosAngleZen = BuildingSystems.Utilities.SmoothFunctions.softcut(cosAngleLat * cos(angleDec) * cos(angleHr)
-                     + sinAngleLat * sin(angleDec),0.00001,1.0,0.0001);
+    + sinAngleLat * sin(angleDec),0.00001,1.0,0.0001);
 
-  angleZen = acos(cosAngleZen) * 180.0 / Modelica.Constants.pi;
+  angleDegZen = acos(cosAngleZen) * 180.0 / Modelica.Constants.pi;
 
-  cosAngleDegInc = BuildingSystems.Utilities.SmoothFunctions.softcut(sin(angleDec) * sinAngleLat * cosAngleDegTil
-    - sin(angleDec) * cosAngleLat * sinangleDegTil * cosAngleDegAzi
-    + cos(angleDec) * cosAngleLat * cosAngleDegTil * cos(angleHr)
-    + cos(angleDec) * sinAngleLat * sinangleDegTil * cosAngleDegAzi * cos(angleHr)
-    + cos(angleDec) * sinangleDegTil * sinangleDegAzi * sin(angleHr),0.0,1.0,0.0001);
+  cosAngleInc = BuildingSystems.Utilities.SmoothFunctions.softcut(sin(angleDec) * sinAngleLat * cosAngleTil
+    - sin(angleDec) * cosAngleLat * sinAngleTil * cosAngleAzi
+    + cos(angleDec) * cosAngleLat * cosAngleTil * cos(angleHr)
+    + cos(angleDec) * sinAngleLat * sinAngleTil * cosAngleAzi * cos(angleHr)
+    + cos(angleDec) * sinAngleTil * sinAngleAzi * sin(angleHr),0.0,1.0,0.0001);
 
-  radiationPort.angleDegInc = acos(cosAngleDegInc) * 180.0 / Modelica.Constants.pi;
+  radiationPort.angleDegInc = acos(cosAngleInc) * 180.0 / Modelica.Constants.pi;
 
-  sinangleDegAzi = sin(angleDegAzi * Modelica.Constants.pi / 180.0);
+  sinAngleAzi = sin(angleDegAzi * Modelica.Constants.pi / 180.0);
 
-  cosAngleDegAzi = cos(angleDegAzi * Modelica.Constants.pi / 180.0);
+  cosAngleAzi = cos(angleDegAzi * Modelica.Constants.pi / 180.0);
 
-  sinangleDegTil = sin(angleDegTil * Modelica.Constants.pi / 180.0);
+  sinAngleTil = sin(angleDegTil * Modelica.Constants.pi / 180.0);
 
-  cosAngleDegTil = cos(angleDegTil * Modelica.Constants.pi / 180.0);
+  cosAngleTil = cos(angleDegTil * Modelica.Constants.pi / 180.0);
 
   IrrTotHor = IrrDirHor + IrrDifHor;
 
   IrrTotTil = radiationPort.IrrDif + radiationPort.IrrDir;
+
+  // softcut for the limit of the solar constant = 1367  W/m^2. Value recommended by the world Radiometric Center
+  IrrDirNor = BuildingSystems.Utilities.SmoothFunctions.softcut_upper(IrrDirHor/cosAngleZen,1367,0.001);
+
+  radiationPort.IrrDir = cosAngleInc * IrrDirNor;
+
   annotation (Icon(graphics={
     Rectangle(extent={{-80,80},{80,-80}}, lineColor={170,213,255},fillPattern = FillPattern.Solid,fillColor={170,213,255}),
-    Ellipse(extent={{-60,62},{20,-18}},lineColor={255,128,0},fillColor={255,128,0},fillPattern = FillPattern.Solid),
+    Ellipse(extent={{-60,62},{20,-18}},lineColor={255,128,0},fillColor={255,128,0},
+            fillPattern =                                                                        FillPattern.Solid),
     Line(points={{72,-8},{8,-72}},color={0,0,0},smooth=Smooth.None,thickness=2),
     Line(points={{12,-12},{32,-32}},color={255,128,0},thickness=1,smooth=Smooth.None),
     Line(points={{22,-2},{42,-22}}, color={255,128,0},thickness=1,smooth=Smooth.None),
     Line(points={{32,8},{52,-12}}, color={255,128,0},thickness=1,smooth=Smooth.None),
     Line(points={{-8,-32},{12,-52}},color={255,128,0},thickness=1,smooth=Smooth.None),
     Line(points={{2,-22},{22,-42}},color={255,128,0},thickness=1,smooth=Smooth.None),
-    Text(extent={{-32,-78},{36,-104}}, lineColor={0,0,255},textString="%name")}));
+    Text(extent={{-32,-78},{36,-104}}, lineColor={0,0,255},textString="%name")}),
+Documentation(info="<html>
+<p>
+This model calculates the direct solar radiation on a tilted surface (general model).
+</p>
+<p>
+The direct solar radiation forms an angle with the vector normal to the earth <code>Zen</code>.
+The same direct solar radiation forms an angle with the normal vector of a tilted surface <code>Inc</code>.
+</p>
+<p>
+Based on trigonometric relations, the model calculates the direct normal irradiation. 
+<code>IrrDirNor = IrrDirHor/cosAngleZen</code>, Which maximum value is limited for numerical reasons to the solar constant <code>1367</code> W/m2. 
+</p>
+<p>
+the amount of direct solar radiation incident on a tilted surface is equal to 
+<code>
+IrrTotTil = IrrDirNor * cosAngleInc
+</code>
+</p>
+</html>", revisions="<html>
+<ul>
+<li>
+May 23, 2015 by Christoph Nytsch-Geusen:<br/>
+First implementation.
+</li>
+</ul>
+</html>"));
 end SolarRadiationTransformerGeneral;

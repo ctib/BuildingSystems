@@ -4,7 +4,8 @@ model BuildingThermal1Zone1DBox
   extends Modelica.Icons.Example;
 
   BuildingSystems.Buildings.Ambient ambient(
-    nSurfaces=building.nSurfacesAmbient,weatherDataFile=BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_Germany_Berlin())
+    nSurfaces=building.nSurfacesAmbient,
+    redeclare BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_Germany_Berlin weatherDataFile)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
   BuildingSystems.Buildings.BuildingTemplates.Building1Zone1DBox building(
     width=10,
@@ -45,7 +46,7 @@ model BuildingThermal1Zone1DBox
   Modelica.Thermal.HeatTransfer.Sources.FixedTemperature soilTemp(T=283.15)
     "Thermal boundary condition under the building (soil temperature)";
 equation
-  connect(soilTemp.port,building.toSolidHeatPorts[1].heatPort[1,1]);
+  connect(soilTemp.port,building.toSolidHeatPorts[1]);
   connect(ambient.toSurfacePorts, building.toAmbientSurfacesPorts) annotation (Line(
    points={{-22,7.66667},{-20,7.66667},{-20,8},{-20,11.3333},{-20,7.66667},{-9,7.66667}},
    color={0,255,0},smooth=Smooth.None));

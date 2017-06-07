@@ -1,14 +1,11 @@
 within BuildingSystems.Technologies.ThermalStorages.Examples;
 model FluidStorageChargeDischargeProfile
-  "Model to test the preservation of a temperature profile and show the numerical"
+  "Example that demonstrates the charging / discharging process with different number of layers in the thermal storage"
   extends Modelica.Icons.Example;
-  replaceable package Medium =   BuildingSystems.Media.Water;
+  replaceable package Medium = BuildingSystems.Media.Water;
   BuildingSystems.Technologies.ThermalStorages.FluidStorage storage(
     redeclare package Medium = Medium,
     height=2.0,
-    redeclare
-      BuildingSystems.Technologies.ThermalStorages.BaseClasses.BuoyancyModels.Buoyancy1
-      HeatBuoyancy,
     HX_2=false,
     Ele_HX_1=3,
     UA_HX_1=500.0,
@@ -75,6 +72,7 @@ equation
     annotation (Line(points={{46,-12},{46,-12},{14,-12}}, color={0,127,255}));
   connect(storage.port_b2, senTem_bottom.port)
     annotation (Line(points={{46,-12},{34,-12},{34,-8}}, color={0,127,255}));
+
   annotation (__Dymola_Commands(file="modelica://BuildingSystems/Resources/Scripts/Dymola/Technologies/ThermalStorages/Examples/FluidStorageChargeDischargeProfile.mos" "Simulate and plot"),
     experiment(StopTime=11000),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),

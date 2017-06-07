@@ -7,9 +7,6 @@ partial model ConstructionGeneral
   parameter Modelica.SIunits.Length height
     "Height"
     annotation(Dialog(tab = "General", group = "Geometry"));
-  parameter Modelica.SIunits.Area A
-    "Net area (gross area minus enclosed surfaces)"
-    annotation(Dialog(enable = false, tab = "General", group = "Geometry"));
   parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg angleDegAzi = 0.0
     "Azimuth angle"
     annotation(Dialog(tab = "General", group = "Geometry"));
@@ -19,12 +16,6 @@ partial model ConstructionGeneral
   parameter Modelica.SIunits.Length zLevel = 0.0
     "Vertical position"
     annotation(Dialog(tab = "General", group = "Geometry"));
-  parameter Integer nY = 1
-    "Number of cells in the y dimension"
-    annotation(Dialog(tab = "Advanced", group = "3D discretisation"), HideResult=true);
-  parameter Integer nZ = 1
-    "Number of cells in the z dimension"
-    annotation(Dialog(tab = "Advanced", group = "3D discretisation"), HideResult=true);
   parameter BuildingSystems.Types.Absorptance abs_1 = 0.5
     "Short-wave absorptance side 1"
     annotation(Dialog(tab = "General", group = "Surfaces"));
@@ -37,4 +28,18 @@ partial model ConstructionGeneral
   parameter Modelica.SIunits.Emissivity epsilon_2 = 0.9
     "Long-wave emittance side 2"
     annotation(Dialog(tab = "General", group = "Surfaces"));
+
+  annotation (
+Documentation(info="<html>
+<p>
+This is partial model description of a building construction.
+</p>
+</html>", revisions="<html>
+<ul>
+<li>
+May 23, 2015 by Christoph Nytsch-Geusen:<br/>
+First implementation.
+</li>
+</ul>
+</html>"));
 end ConstructionGeneral;

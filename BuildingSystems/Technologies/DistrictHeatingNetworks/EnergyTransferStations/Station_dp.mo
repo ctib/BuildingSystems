@@ -8,7 +8,8 @@ model Station_dp
       dp2_nominal=dp_nominalHeating,
       allowFlowReversal1=false,
       allowFlowReversal2=false,
-      show_T=show_T));
+      show_T=show_T,
+      from_dp1=from_dp));
   parameter Modelica.SIunits.Temperature TminDHN = 273.15 + 30
     "Minimum return temperature in building's installation";
   parameter Modelica.SIunits.TemperatureDifference Tdrop = 25
@@ -27,7 +28,7 @@ model Station_dp
     allowFlowReversal=false,
     dpValve_nominal=dpValve_nominal,
     dpFixed_nominal=dpFixed_nominal,
-    from_dp=true)
+    from_dp=from_dp)
     annotation (Placement(transformation(extent={{-92,-10},{-72,10}})));
   BuildingSystems.Controls.Continuous.LimPID conPID(
     controllerType=Modelica.Blocks.Types.SimpleController.PI,
@@ -94,6 +95,13 @@ model Station_dp
     annotation(Dialog(group = "Nominal condition"));
   parameter Modelica.SIunits.Pressure dpFixed_nominal=0
     annotation(Dialog(group = "Nominal condition"));
+  Buildings.BaseClasses.RelationRadiationConvection
+    relationRadiationConvection(radiationportion=0.5)
+    annotation (Placement(transformation(extent={{-10,10},{10,-10}},
+        rotation=90,
+        origin={70,70})));
+  parameter Boolean from_dp=true
+    "= true, use m_flow = f(dp) else dp = f(m_flow)" annotation(Evaluate=true, Dialog(tab="Advanced"));
 equation
   connect(tanhAmbient.u, ambientTAirRef) annotation (Line(
       points={{-58,77},{-50,77},{-50,100}},
@@ -135,10 +143,6 @@ equation
       points={{80,0},{92,0},{92,-84},{-20,-84}},
       color={0,127,255},
       smooth=Smooth.None));
-  connect(externalIdealHeater.Q_flowHea, HeatPort) annotation (Line(
-      points={{70,10},{70,90}},
-      color={191,0,0},
-      smooth=Smooth.None));
   connect(Q.y, externalIdealHeater.Q_in) annotation (Line(
       points={{32,-24},{40,-24},{40,6},{59.2,6},{59.2,5}},
       color={0,0,127},
@@ -168,9 +172,15 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
 
+  connect(externalIdealHeater.Q_flowHea, relationRadiationConvection.heatPort)
+    annotation (Line(points={{70,10},{70,67}}, color={191,0,0}));
+  connect(relationRadiationConvection.heatPortCv, Conheat) annotation (Line(
+        points={{72,74},{72,74},{72,90},{90,90}}, color={191,0,0}));
+  connect(relationRadiationConvection.heatPortLw, Radheat)
+    annotation (Line(points={{68,74},{68,90},{60,90}}, color={191,0,0}));
   annotation(Dialog(group = "Nominal condition"),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-    -100},{100,100}}), graphics), Icon(coordinateSystem(
+    -100},{100,100}})),           Icon(coordinateSystem(
     preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics),
     Documentation(info="<html>
     <p>
