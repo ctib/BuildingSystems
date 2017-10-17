@@ -14,9 +14,8 @@ model BatteryComplex "Example of the extended electrical battery model"
     annotation (Placement(transformation(extent={{-84,56},{-76,64}})));
   Modelica.Blocks.Sources.Pulse load(
     period=2400,
-    width=10,
-    amplitude=1600)
-    annotation (Placement(transformation(extent={{-36,56},{-44,64}})));
+    amplitude=56000,
+    width=5) annotation (Placement(transformation(extent={{-36,56},{-44,64}})));
 equation
   connect(battery.PCharge, gain.y) annotation (Line(
       points={{-65,60},{-75.6,60}},
