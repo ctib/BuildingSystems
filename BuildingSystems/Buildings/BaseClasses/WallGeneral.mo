@@ -7,28 +7,32 @@ partial model WallGeneral
   BuildingSystems.Buildings.Interfaces.SurfaceToConstructionPort toSurfacePort_2(
     A=ASur,
     abs = abs_2,
-    geo.angleDegAzi=angleDegAzi,
-    geo.angleDegTil=angleDegTil,
-    geo.width=width,
-    geo.height=height,
-    geo.zMean = zLevel + Modelica.Math.sin(Modelica.Constants.pi/180.0*angleDegTil) * height,
-    geo.point.x={0.0,width,width,0.0},
-    geo.point.y={0.0,0.0,height,height},
-    geo.point.z={0.0,0.0,0.0,0.0},
+    geo(
+    angleDegAzi =   angleDegAzi,
+    angleDegTil =   angleDegTil,
+    width =   width,
+    height =   height,
+    zMean =     zLevel + Modelica.Math.sin(Modelica.Constants.pi/180.0*angleDegTil) * height,
+      point(
+    x =         {0.0,width,width,0.0},
+    y =         {0.0,0.0,height,height},
+    z =         {0.0,0.0,0.0,0.0})),
     epsilon = epsilon_2)
     "Interface to surface on side 2"
     annotation (Placement(transformation(extent={{10,-10},{30,10}}), iconTransformation(extent={{10,-10},{30,10}})));
   BuildingSystems.Buildings.Interfaces.SurfaceToConstructionPort toSurfacePort_1(
     A=ASur,
     abs = abs_1,
-    geo.angleDegAzi=angleDegAzi,
-    geo.angleDegTil=angleDegTil,
-    geo.width=width,
-    geo.height=height,
-    geo.zMean = zLevel + Modelica.Math.sin(Modelica.Constants.pi/180.0*angleDegTil) * height,
-    geo.point.x={0.0,width,width,0.0},
-    geo.point.y={0.0,0.0,height,height},
-    geo.point.z={0.0,0.0,0.0,0.0},
+    geo(
+    angleDegAzi =   angleDegAzi,
+    angleDegTil =   angleDegTil,
+    width =   width,
+    height =   height,
+    zMean =     zLevel + Modelica.Math.sin(Modelica.Constants.pi/180.0*angleDegTil) * height,
+      point(
+    x =         {0.0,width,width,0.0},
+    y =         {0.0,0.0,height,height},
+    z =         {0.0,0.0,0.0,0.0})),
     epsilon = epsilon_1)
     "Interface to surface on side 1"
     annotation (Placement(transformation(extent={{-30,-10},{-10,10}}), iconTransformation(extent={{-30,-10},{-10,10}})));

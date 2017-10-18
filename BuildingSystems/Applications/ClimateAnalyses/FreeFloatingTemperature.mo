@@ -9,7 +9,7 @@ model FreeFloatingTemperature
       nAirpathes=building.nAirpathes)
       annotation (Placement(transformation(extent={{-40,-28},{-20,-8}})));
     BuildingSystems.Buildings.BuildingTemplates.Building1Zone0D building(
-      AAmb=2.8*(4.0+4.0+6.0+6.0) + 4.0*6.0, // building shape: 4 m x 6 m x 2.8 m
+      AAmb=2.8*(4.0+4.0+6.0+6.0) + 4.0*6.0,
       AInn=3.3*2.8*2.0,
       AGro=4.0*6.0,
       nWindows=1,
@@ -24,6 +24,7 @@ model FreeFloatingTemperature
       UValWin={2.0},
       calcIdealLoads=false)
       annotation (Placement(transformation(extent={{-10,-28},{10,-8}})));
+                                            // building shape: 4 m x 6 m x 2.8 m
 
     Modelica.Blocks.Sources.Constant airchange(
       k=0.5)
@@ -58,7 +59,7 @@ model FreeFloatingTemperature
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-50,-50},{50,50}})), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-50,-50},{50,50}}), graphics={
       Rectangle(extent={{-20,20},{20,-20}},lineColor={255,0,0},fillColor={255,0,0},fillPattern=FillPattern.Solid),
       Polygon(points={{-20,20},{0,40},{20,20},{-20,20}},lineColor={255,0,0},smooth=Smooth.None,fillColor={255,0,0},fillPattern=FillPattern.Solid),
-      Text(extent={{-42,-16},{42,-38}},lineColor={0,0,255},fillColor={230,230,230},fillPattern=  FillPattern.Solid,textString= "%name")}));
+      Text(extent={{-42,-16},{42,-38}},lineColor={0,0,255},fillColor={230,230,230},fillPattern = FillPattern.Solid,textString= "%name")}));
   end Location;
 
   Location AmundsenScott(

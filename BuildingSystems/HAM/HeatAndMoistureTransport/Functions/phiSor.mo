@@ -1,5 +1,4 @@
 within BuildingSystems.HAM.HeatAndMoistureTransport.Functions;
-
 function phiSor
   "Calculation of the relative humdity of a porous material"
   input Modelica.SIunits.MassConcentration sorTabX[:];
@@ -19,10 +18,11 @@ protected
 algorithm
   if w < 0.0 then
     value := 0.0;
-  elseif w >= 0.0 and w <= wMax  then
+  elseif w >= 0.0 and w <= wMax then
     //value := Modelica.Math.Vectors.interpolate(sorTabY,sorTabX,w);
     value := BuildingSystems.HAM.HeatAndMoistureTransport.Functions.interpol(w,sorTabY,sorTabX,1);
   else
     value := phiMax;
   end if;
 end phiSor;
+

@@ -81,7 +81,8 @@ model ParallelPipes
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   replaceable
     BuildingSystems.Technologies.DistrictHeatingNetworks.UndergroundPipes.BaseClasses.DHN_Umodels.UPartialClass Umodel
-      constrainedby BuildingSystems.Technologies.DistrictHeatingNetworks.UndergroundPipes.BaseClasses.DHN_Umodels.UPartialClass
+      constrainedby
+    BuildingSystems.Technologies.DistrictHeatingNetworks.UndergroundPipes.BaseClasses.DHN_Umodels.UPartialClass
     "Heat transfer coefficient model"
     annotation (choicesAllMatching=true, Placement(transformation(extent={{62,-10},{42,10}})));
   parameter Boolean InteractionBetweenPipes=false

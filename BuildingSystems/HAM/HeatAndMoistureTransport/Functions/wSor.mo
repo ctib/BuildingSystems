@@ -1,5 +1,4 @@
 within BuildingSystems.HAM.HeatAndMoistureTransport.Functions;
-
 function wSor
   "Calculates the water content of a porous material"
   input Modelica.SIunits.MassConcentration sorTabX[:];
@@ -23,3 +22,4 @@ algorithm
     value := wMax;
   end if;
 end wSor;
+

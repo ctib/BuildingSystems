@@ -54,9 +54,9 @@ equation
   airpathPort_1.Xi_outflow[1] = x_internal;
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-     Rectangle(extent={{-10,40},{10,-40}},lineColor={230,230,230},fillColor={230,230,230},fillPattern=  FillPattern.Solid,origin={0,1.77636e-015},rotation=90),
-     Text(extent={{-44,-10},{48,-38}},lineColor={0,0,255},fillColor={230,230,230},fillPattern=  FillPattern.Solid,textString= "%name"),
-     Rectangle(extent={{-20,9},{20,-9}},  lineColor={230,230,230},fillColor={230,230,230},fillPattern=  FillPattern.Solid,origin={31,0}, rotation=90)}),
+     Rectangle(extent={{-10,40},{10,-40}},lineColor={230,230,230},fillColor={230,230,230},fillPattern = FillPattern.Solid,origin={0,1.77636e-015},rotation=90),
+     Text(extent={{-44,-10},{48,-38}},lineColor={0,0,255},fillColor={230,230,230},fillPattern = FillPattern.Solid,textString= "%name"),
+     Rectangle(extent={{-20,9},{20,-9}},  lineColor={230,230,230},fillColor={230,230,230},fillPattern = FillPattern.Solid,origin={31,0}, rotation=90)}),
 Documentation(info="<html>
 <p>
 This is a model of an air path for a given mass flow rate.

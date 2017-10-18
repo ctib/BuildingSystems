@@ -1,6 +1,5 @@
 within BuildingSystems.Buildings;
-package Constructions
-  "Package with building element models"
+package Constructions "Package with building element models"
   extends Modelica.Icons.VariantsPackage;
 
   annotation (Icon(graphics={

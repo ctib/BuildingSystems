@@ -79,10 +79,11 @@ model Building1Zone0D
     final width=2.0*AAmb,
     final height=0.5*height,
     nNodes={1},
-    final constructionData.thickness={1.0},
-    final constructionData.material.rho={1000.0},
-    final constructionData.material.c={CAmb/(ambientConstructions.constructionData.material[1].rho*AAmb*ambientConstructions.constructionData.thickness[1])},
-    final constructionData.material.lambda={(1.0/(-1.0/alphaAmb-1.0/alphaIns+1.0/UValAmb)*ambientConstructions.constructionData.thickness[1])})
+    constructionData(
+    final thickness =                {1.0}, material(
+    final rho =                         {1000.0},
+    final c =                         {CAmb/(ambientConstructions.constructionData.material[1].rho*AAmb*ambientConstructions.constructionData.thickness[1])},
+    final lambda =                         {(1.0/(-1.0/alphaAmb-1.0/alphaIns+1.0/UValAmb)*ambientConstructions.constructionData.thickness[1])})))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=180,origin={-40,-20})));
 
   BuildingSystems.Buildings.Constructions.Walls.WallThermal1DNodes groundConstructions(
@@ -93,10 +94,11 @@ model Building1Zone0D
     final width=1.0,
     final height=AGro,
     nNodes={1},
-    final constructionData.thickness={1.0},
-    final constructionData.material.rho={1000.0},
-    final constructionData.material.c={CGro/(groundConstructions.constructionData.material[1].rho*AGro*groundConstructions.constructionData.thickness[1])},
-    final constructionData.material.lambda={(1.0/(-1.0/alphaIns-1.0/alphaGro+1.0/UValGro)*groundConstructions.constructionData.thickness[1])})
+    constructionData(
+    final thickness =                {1.0}, material(
+    final rho =                         {1000.0},
+    final c =                         {CGro/(groundConstructions.constructionData.material[1].rho*AGro*groundConstructions.constructionData.thickness[1])},
+    final lambda =                         {(1.0/(-1.0/alphaIns-1.0/alphaGro+1.0/UValGro)*groundConstructions.constructionData.thickness[1])})))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=270,origin={-4,-42})));
 
   BuildingSystems.Buildings.Constructions.Walls.WallThermal1DNodes innerConstructions(
@@ -107,10 +109,11 @@ model Building1Zone0D
     final width=1.0,
     final height=0.5*AInn,
     nNodes={1},
-    final constructionData.thickness={1.0},
-    final constructionData.material.rho={1000.0},
-    final constructionData.material.c={CInn/(innerConstructions.constructionData.material[1].rho*0.5*AInn*innerConstructions.constructionData.thickness[1])},
-    final constructionData.material.lambda={(1.0/(-1.0/alphaIns-1.0/alphaIns+1.0/UValInn)*innerConstructions.constructionData.thickness[1])})
+    constructionData(
+    final thickness =                {1.0}, material(
+    final rho =                         {1000.0},
+    final c =                         {CInn/(innerConstructions.constructionData.material[1].rho*0.5*AInn*innerConstructions.constructionData.thickness[1])},
+    final lambda =                         {(1.0/(-1.0/alphaIns-1.0/alphaIns+1.0/UValInn)*innerConstructions.constructionData.thickness[1])})))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=180,origin={40,-2})));
 
   BuildingSystems.Buildings.Constructions.Windows.Window window[nWindows](
@@ -127,7 +130,7 @@ model Building1Zone0D
     "Heat transfer coefficient (convection + radiation) outside of the building"; // after german DIN 4701 Teil2 tabular 16"
   final parameter Modelica.SIunits.SurfaceCoefficientOfHeatTransfer alphaGro = 100.0
     "Heat transfer coefficient (conduction) to the ground";
-    
+
 equation
   connect(zone.TAir, TAir[1]) annotation (Line(
     points={{-7,7},{-7,-30},{88,-30},{88,-70},{110,-70}},

@@ -28,7 +28,7 @@ equation
 
   ISat2 = cs2 * sqrt(T * T * T * T * T) * Modelica.Math.exp(-(Eg * e)/(2.0 * k * T));
 
-  annotation(
+  annotation (
 Documentation(info="<html>
 <p>
 This is a basic electrical two diodes model of a PV module.

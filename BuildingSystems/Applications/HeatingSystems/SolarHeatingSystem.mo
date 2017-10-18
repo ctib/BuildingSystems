@@ -2,7 +2,7 @@ within BuildingSystems.Applications.HeatingSystems;
 model SolarHeatingSystem
   "Solar heating system"
   extends Modelica.Icons.Example;
-  package Medium = BuildingSystems.Media.Water(
+  package Medium = BuildingSystems.Media.Water (
     T_min = 273.15 - 10.0,
     T_max = 273.15 + 200.0);
   parameter Modelica.SIunits.MassFlowRate m_flow_nominal= 0.1;
@@ -357,8 +357,8 @@ equation
       points={{0,-4.8},{0,-4.8},{0,68},{17,68},{17,62}}, color={191,0,0}));
   connect(ambient.latitudeDeg, radiation.latitudeDeg) annotation (Line(points={{
           -23,61},{-23,84},{76.2,84},{76.2,25.6}}, color={0,0,127}));
-  connect(ambient.longitudeDeg, radiation.longitudeDeg) annotation (Line(points
-        ={{-21,61},{-21,84},{80,84},{80,25.6}}, color={0,0,127}));
+  connect(ambient.longitudeDeg, radiation.longitudeDeg) annotation (Line(points=
+         {{-21,61},{-21,84},{80,84},{80,25.6}}, color={0,0,127}));
   connect(ambient.longitudeDeg0, radiation.longitudeDeg0) annotation (Line(
         points={{-19,61},{-19,84},{84,84},{84,25.6}}, color={0,0,127}));
 

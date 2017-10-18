@@ -17,7 +17,7 @@ equation
   phi = ramp.y;
   wSor = BuildingSystems.HAM.HeatAndMoistureTransport.Functions.wSor(material.sorTabX,material.sorTabY,phi,material.wF,material.porosity);
 
-  annotation(    experiment(StopTime=1.1),
+  annotation (   experiment(StopTime=1.1),
     __Dymola_Commands(file="modelica://BuildingSystems/Resources/Scripts/Dymola/HAM/HeatAndMoistureTransport/Functions/Examples/wSor.mos"
         "Simulate and plot"),
     Documentation(info="<html>

@@ -101,18 +101,22 @@ equation
   der(m) = sum(airpathPorts.m_flow);
 
   //Mass balance of water vapor in the air
-  der(mH2OAir) = sum(toSurfacePorts.moisturePort.m_flow) // water vaper from moisture transfer of surfaces
-    + sum(m_flow_H2O_airpath) // water vapor within air mass flows through air pathes
-    + (-0.5 * Modelica.Math.tanh(100.0*(phi-1.0)) + 0.5) * sum(moistureSourcesPorts.m_flow) // water vapor from moisture sources
-    + BuildingSystems.Utilities.SmoothFunctions.softcut(1.0-phi,0.0,1.0,0.001) * mH2OLiq; // evaporated water from liquid reservoir
+  der(mH2OAir) = sum(toSurfacePorts.moisturePort.m_flow)
+    + sum(m_flow_H2O_airpath)
+    + (-0.5 * Modelica.Math.tanh(100.0*(phi-1.0)) + 0.5) * sum(moistureSourcesPorts.m_flow)
+    + BuildingSystems.Utilities.SmoothFunctions.softcut(1.0-phi,0.0,1.0,0.001) * mH2OLiq;
+                                                         // water vaper from moisture transfer of surfaces
+                              // water vapor within air mass flows through air pathes       // water vapor from moisture sources
+                                                                                          // evaporated water from liquid reservoir
 
   mH2OAir = x * m;
 
   phi = BuildingSystems.Utilities.Psychrometrics.Functions.phi_pTX(100000,T,x);
 
   // Mass balance of liquid water
-  der(mH2OLiq) = (1.0 - (-0.5 * Modelica.Math.tanh(100.0*(phi-1.0)) + 0.5)) * sum(moistureSourcesPorts.m_flow) // water vapor surplus from moisture sources if relative moisture becomes close to 1
-    - BuildingSystems.Utilities.SmoothFunctions.softcut(1.0-phi,0.0,1.0,0.001) * mH2OLiq; // evaporated water which leaves the liquid reservoir
+  der(mH2OLiq) = (1.0 - (-0.5 * Modelica.Math.tanh(100.0*(phi-1.0)) + 0.5)) * sum(moistureSourcesPorts.m_flow)
+    - BuildingSystems.Utilities.SmoothFunctions.softcut(1.0-phi,0.0,1.0,0.001) * mH2OLiq;                      // water vapor surplus from moisture sources if relative moisture becomes close to 1
+                                                                                          // evaporated water which leaves the liquid reservoir
 
   for i in 1:nAirpathes loop
     // Enthalpy flow through each air path

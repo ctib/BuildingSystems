@@ -8,10 +8,11 @@ model Building1Zone1DCylinder
     final calcHygroThermal = false,
     final nAirpathes = 0,
     final convectionOnSurfaces=BuildingSystems.HAM.ConvectiveHeatTransfer.Types.Convection.forced,
-    final alphaConstant = 0.0, // dummy value
+    final alphaConstant = 0.0,
     surfacesToAmbient(nSurfaces=nSeg+1),
     nSurfacesSolid=1,
     surfacesToSolids(nSurfaces=nSurfacesSolid));
+                               // dummy value
   replaceable parameter BuildingSystems.Buildings.Data.Constructions.OpaqueThermalConstruction constructionWall
     "Data of the thermal construction"
     annotation(Dialog(tab = "Constructions", group = "Exterior constructions"), choicesAllMatching=true);
@@ -79,9 +80,10 @@ protected
     zMean = height/2,
     angleDegAzi = 0.0,
     angleDegTil = 0.0,
-    point.x = {sin(2.0*Modelica.Constants.pi/nSeg*(i-1))*diameter/2 for i in 1:nSeg},
-    point.y = {cos(2.0*Modelica.Constants.pi/nSeg*(i-1))*diameter/2 for i in 1:nSeg},
-    point.z = {circle.zMean for i in 1:nSeg})
+    point(
+    x =       {sin(2.0*Modelica.Constants.pi/nSeg*(i-1))*diameter/2 for i in 1:nSeg},
+    y =       {cos(2.0*Modelica.Constants.pi/nSeg*(i-1))*diameter/2 for i in 1:nSeg},
+    z =       {circle.zMean for i in 1:nSeg}))
     "3D geometry representation of circular section of the cylinder";
 equation
   connect(zone.TAir, TAir[1]) annotation (Line(

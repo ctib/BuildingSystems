@@ -37,7 +37,7 @@ partial model SolarRadiationTransformerGeneral
     annotation (Placement(transformation(extent={{-102,-46},{-62,-6}}), iconTransformation(extent={{-90,-34},{-62,-6}})));
   BuildingSystems.Interfaces.Angle_degOutput angleDegTil_internal
     "Tilt angle of the surface";
-  output BuildingSystems.Interfaces.Angle_degOutput angleDegTilTracked =
+  output BuildingSystems.Interfaces.Angle_degOutput angleDegTilTracked=
     180.0 / Modelica.Constants.pi * atan(-sin((angleDegAziSun + angleDegAzi - 90.0)*Modelica.Constants.pi/180.0) * tan(angleZen)) if OneAxisTracking
     "Tilt angle of the surface"
     annotation (Placement(transformation(extent={{-20,-20},{20,20}},rotation=180,origin={-82,-26}),

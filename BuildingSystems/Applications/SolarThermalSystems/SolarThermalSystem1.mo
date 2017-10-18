@@ -208,8 +208,8 @@ equation
           points={{-109.2,77.2},{-106,77.2},{-106,80},{-93.8,80},{-93.8,77.6}},
           color={0,0,127}));
   connect(weatherData.longitudeDeg, radiation.longitudeDeg) annotation (Line(
-        points={{-109.2,75.6},{-106,75.6},{-106,80},{-90,80},{-90,77.6}}, color
-        ={0,0,127}));
+        points={{-109.2,75.6},{-106,75.6},{-106,80},{-90,80},{-90,77.6}}, color=
+         {0,0,127}));
   connect(weatherData.longitudeDeg0, radiation.longitudeDeg0) annotation (Line(
         points={{-109.2,74},{-106,74},{-106,80},{-86,80},{-86,77.6}}, color={0,0,127}));
 

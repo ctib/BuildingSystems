@@ -28,7 +28,8 @@ model RadiationDistribution
   BuildingSystems.Interfaces.Temp_KOutput TSurfMean
     "Mean temperatures of all surfaces"
     annotation (Placement(transformation(extent={{70,-10},{90,10}}), iconTransformation(extent={{70,-10},{90,10}})));
-  protected Modelica.SIunits.HeatFlux J[nSurfaces](each start = 0.0)
+protected
+            Modelica.SIunits.HeatFlux J[nSurfaces](each start = 0.0)
     "Radiosity of each surface";
 initial equation
   if not geometricViewFactors then

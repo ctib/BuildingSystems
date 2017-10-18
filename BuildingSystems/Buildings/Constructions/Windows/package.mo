@@ -1,6 +1,5 @@
 within BuildingSystems.Buildings.Constructions;
-package Windows
-  "Package with window models"
+package Windows "Package with window models"
   extends Modelica.Icons.Package;
 
   annotation (Icon(graphics={

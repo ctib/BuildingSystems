@@ -1,5 +1,4 @@
 within BuildingSystems.Climate;
-package Examples
-  "Examples for weather data calculation"
+package Examples "Examples for weather data calculation"
   extends Modelica.Icons.ExamplesPackage;
 end Examples;

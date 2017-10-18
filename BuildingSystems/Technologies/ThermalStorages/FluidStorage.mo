@@ -78,12 +78,12 @@ model FluidStorage
   parameter Boolean AdditionalFluidPorts = false
     "Set to true to add aditional fluid ports connected to intermediate layers"
     annotation(Dialog(group="Storage configuration"));
-  parameter Modelica.SIunits.ThermalConductance UA_wall =
+  parameter Modelica.SIunits.ThermalConductance UA_wall=
     (Modelica.Constants.pi * height) / (1.0 / (alpha_out * diameter_ext)
     + log(diameter_ext / diameter_int) / (2 * lambda_ins) + 1/(alpha_in * diameter_int))
     "Thermal conductance walls"
     annotation(Dialog(group="Thermal properties"));
-  parameter Modelica.SIunits.ThermalConductance UA_top =
+  parameter Modelica.SIunits.ThermalConductance UA_top=
     1.0 / (thickness_ins / (lambda_ins * ASec) + 1.0 / (alpha_in * ASec) + 1.0 / (alpha_out * ASec))
     "Thermal conductance top"
     annotation(Dialog(group="Thermal properties"));

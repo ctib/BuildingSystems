@@ -42,8 +42,7 @@ model SingleCollectorWithStorageTest
   BuildingSystems.Technologies.ThermalStorages.FluidStorage storage(
     redeclare package Medium = Medium,
     redeclare
-      BuildingSystems.Technologies.ThermalStorages.BaseClasses.BuoyancyModels.Buoyancy1
-                                                                                                HeatBuoyancy,
+      BuildingSystems.Technologies.ThermalStorages.BaseClasses.BuoyancyModels.Buoyancy1         HeatBuoyancy,
     HX_2 = false,
     PerfectlyIsolated = true,
     nEle = 4)

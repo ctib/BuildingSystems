@@ -40,7 +40,8 @@ model TwoPortHeatMassExchanger
     annotation (Dialog(tab="Initialization", enable=Medium.nC > 0));
 
   replaceable BuildingSystems.Fluid.MixingVolumes.MixingVolume vol
-  constrainedby BuildingSystems.Fluid.MixingVolumes.BaseClasses.PartialMixingVolume(
+  constrainedby
+    BuildingSystems.Fluid.MixingVolumes.BaseClasses.PartialMixingVolume(
     redeclare final package Medium = Medium,
     nPorts = 2,
     V=m_flow_nominal*tau/rho_default,

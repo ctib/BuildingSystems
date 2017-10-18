@@ -20,4 +20,6 @@ record ElectricBatteryGeneral
     "Maximal discharging power";
   parameter Modelica.SIunits.Power PCharge_max
     "Maximal charging power";
+  parameter Modelica.SIunits.Resistance R_int
+    "Internal battery resistance";
 end ElectricBatteryGeneral;

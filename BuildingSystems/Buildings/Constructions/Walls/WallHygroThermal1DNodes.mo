@@ -2,7 +2,7 @@ within BuildingSystems.Buildings.Constructions.Walls;
 model WallHygroThermal1DNodes
   "Hygro-thermal wall model with 1D discritisation of the single layers"
   extends BuildingSystems.Buildings.BaseClasses.WallHygroThermalGeneral;
-  BuildingSystems.Interfaces.HeatPort heatSourcePort =
+  BuildingSystems.Interfaces.HeatPort heatSourcePort=
     construction.layer[layerWithHeatSource].heatPort_source[nodeWithHeatSource] if heatSource
     annotation (Placement(transformation(extent={{10,-48},{30,-28}}), iconTransformation(extent={{10,-48},{30,-28}})));
 
@@ -19,7 +19,7 @@ model WallHygroThermal1DNodes
 
   parameter Integer nNodes[constructionData.nLayers] = fill(1,constructionData.nLayers)
     "Number of numerical nodes of each layer"
-    annotation(Dialog(tab ="Advanced",group="Heat sources"));
+    annotation(Dialog(tab= "Advanced",group="Heat sources"));
   parameter Integer nodeWithHeatSource = 1
     "Numerical node of the specified layer with internal heat source"
     annotation(Dialog(tab = "Advanced", group = "Heat sources"));

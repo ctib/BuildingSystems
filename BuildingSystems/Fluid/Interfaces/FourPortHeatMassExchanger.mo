@@ -89,7 +89,8 @@ model FourPortHeatMassExchanger
     annotation (Placement(transformation(extent={{-10,70}, {10,50}})));
 
   replaceable BuildingSystems.Fluid.MixingVolumes.MixingVolume vol2
-    constrainedby BuildingSystems.Fluid.MixingVolumes.BaseClasses.PartialMixingVolume(
+    constrainedby
+    BuildingSystems.Fluid.MixingVolumes.BaseClasses.PartialMixingVolume(
     redeclare final package Medium = Medium2,
     nPorts = 2,
     V=m2_flow_nominal*tau2/rho2_nominal,

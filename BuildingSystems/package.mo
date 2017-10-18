@@ -1,6 +1,5 @@
 within ;
-package BuildingSystems
-  "Library for building energy and plant simulation"
+package BuildingSystems "Library for building energy and plant simulation"
   extends Modelica.Icons.Package;
 
   annotation (
@@ -11,8 +10,10 @@ package BuildingSystems
     uses(Modelica(version="3.2.2"),NcDataReader2(version="2.4.0")),
     preferredView="info",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),graphics={
-    Polygon(points={{-34,62},{0,88},{30,62},{-34,62}},lineColor={0,0,0},fillColor={135,135,135},fillPattern=FillPattern.Solid),
-    Rectangle(extent={{-34,62},{30,12}},lineColor={0,0,0},fillColor={135,135,135},fillPattern=FillPattern.Solid),
+    Polygon(points={{-34,62},{0,88},{30,62},{-34,62}},lineColor={0,0,0},fillColor={135,135,135},
+          fillPattern =                                                                                     FillPattern.Solid),
+    Rectangle(extent={{-34,62},{30,12}},lineColor={0,0,0},fillColor={135,135,135},
+          fillPattern =                                                                       FillPattern.Solid),
     Ellipse(extent={{-40,-40},{-12,-68}}, lineColor={0,0,0}),
     Rectangle(extent={{-2,-50},{42,-58}}, lineColor={0,0,0}),
     Rectangle(extent={{48,2},{76,-32}}, lineColor={0,0,0}),

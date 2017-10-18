@@ -3,7 +3,7 @@ model WallThermal1DNodes
   "1D thermal wall model under real weather data"
   extends Modelica.Icons.Example;
   record Construction
-    extends BuildingSystems.Buildings.Data.Constructions.OpaqueThermalConstruction (
+    extends BuildingSystems.Buildings.Data.Constructions.OpaqueThermalConstruction(
       nLayers=2,
       thickness={0.1,0.1},
       material={BuildingSystems.HAM.Data.MaterialProperties.Thermal.Concrete(),

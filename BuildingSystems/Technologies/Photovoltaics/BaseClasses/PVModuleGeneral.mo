@@ -63,7 +63,7 @@ partial model PVModuleGeneral
     "Controlled azimuth angle of the PV module"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=-90,origin={-30,84}),
       iconTransformation(extent={{-10,-10},{10,10}},rotation=-90,origin={-40,80})));
-  protected
+protected
     Modelica.Blocks.Interfaces.RealInput GSC_internal
       "Shading coefficient";
     Modelica.Blocks.Interfaces.RealInput angleDegAzi_internal

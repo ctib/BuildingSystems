@@ -109,8 +109,8 @@ partial model BuildingTemplate
     "Heat port to the ground under the building"
     annotation (Placement(transformation(extent={{-8,-8},{8,8}},rotation=180,origin={-42,-118}),iconTransformation(extent={{-80,-100},{0,-80}})));
   BuildingSystems.Interfaces.HeatPorts conHeatSourcesPorts[nHeatSources] if heatSources
-    "Heat port to internal convective heat sources of the building" annotation
-    (Placement(transformation(extent={{-54,110},{-34,130}}), iconTransformation(extent={{-10,90},{10,110}})));
+    "Heat port to internal convective heat sources of the building" annotation (
+     Placement(transformation(extent={{-54,110},{-34,130}}), iconTransformation(extent={{-10,90},{10,110}})));
   BuildingSystems.Interfaces.HeatPorts radHeatSourcesPorts[nHeatSources] if heatSources
     "Heat port to internal long-wave radiation heat sources of the building"
     annotation (Placement(transformation(extent={{-10,110},{10,130}}),iconTransformation(extent={{20,90},{40,110}})));

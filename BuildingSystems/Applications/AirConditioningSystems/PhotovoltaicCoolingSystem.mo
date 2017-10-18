@@ -325,8 +325,8 @@ equation
     annotation (Line(points={{124,0},{126,0},{128,0}}, color={0,127,255}));
   connect(ambient.latitudeDeg, radiation.latitudeDeg) annotation (Line(points={{
           67,49},{67,64},{-65.8,64},{-65.8,29.6}}, color={0,0,127}));
-  connect(ambient.longitudeDeg, radiation.longitudeDeg) annotation (Line(points
-        ={{69,49},{69,64},{-62,64},{-62,29.6}}, color={0,0,127}));
+  connect(ambient.longitudeDeg, radiation.longitudeDeg) annotation (Line(points=
+         {{69,49},{69,64},{-62,64},{-62,29.6}}, color={0,0,127}));
   connect(ambient.longitudeDeg0, radiation.longitudeDeg0) annotation (Line(
         points={{71,49},{71,64},{-58,64},{-58,29.6}}, color={0,0,127}));
 

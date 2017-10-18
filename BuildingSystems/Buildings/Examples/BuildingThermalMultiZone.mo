@@ -742,62 +742,62 @@ model BuildingThermalMultiZone
         Line(points={{100,42},{100,42},{100,49},{98,49}}, color={0,0,0}));
     connect(wall25.toSurfacePort_2, office8.toConstructionPorts4[1]) annotation (
         Line(points={{140,42},{140,42},{140,49},{138,49}}, color={0,0,0}));
-    connect(window1.toSurfacePort_1, office1.toConstructionPorts2[2]) annotation
-      (Line(points={{-150,88},{-150,88},{-150,74},{-138,74},{-138,71}}, color={0,0,0}));
-    connect(window2.toSurfacePort_1, office2.toConstructionPorts2[2]) annotation
-      (Line(points={{-110,88},{-110,88},{-110,74},{-98,74},{-98,71}}, color={0,0,0}));
-    connect(window3.toSurfacePort_1, office3.toConstructionPorts2[2]) annotation
-      (Line(points={{-70,88},{-70,88},{-70,74},{-58,74},{-58,71}}, color={0,0,0}));
-    connect(window4.toSurfacePort_1, office4.toConstructionPorts2[2]) annotation
-      (Line(points={{-30,88},{-30,74},{-18,74},{-18,71}}, color={0,0,0}));
+    connect(window1.toSurfacePort_1, office1.toConstructionPorts2[2]) annotation (
+       Line(points={{-150,88},{-150,88},{-150,74},{-138,74},{-138,71}}, color={0,0,0}));
+    connect(window2.toSurfacePort_1, office2.toConstructionPorts2[2]) annotation (
+       Line(points={{-110,88},{-110,88},{-110,74},{-98,74},{-98,71}}, color={0,0,0}));
+    connect(window3.toSurfacePort_1, office3.toConstructionPorts2[2]) annotation (
+       Line(points={{-70,88},{-70,88},{-70,74},{-58,74},{-58,71}}, color={0,0,0}));
+    connect(window4.toSurfacePort_1, office4.toConstructionPorts2[2]) annotation (
+       Line(points={{-30,88},{-30,74},{-18,74},{-18,71}}, color={0,0,0}));
     connect(window5.toSurfacePort_1, office5.toConstructionPorts2[2])
       annotation (Line(points={{10,88},{10,74},{22,74},{22,71}}, color={0,0,0}));
-    connect(window6.toSurfacePort_1, office6.toConstructionPorts2[2]) annotation
-      (Line(points={{50,88},{50,88},{50,74},{62,74},{62,71}}, color={0,0,0}));
-    connect(window7.toSurfacePort_1, office7.toConstructionPorts2[2]) annotation
-      (Line(points={{90,88},{90,88},{90,74},{102,74},{102,71}}, color={0,0,0}));
-    connect(window8.toSurfacePort_1, office8.toConstructionPorts2[2]) annotation
-      (Line(points={{130,88},{130,88},{130,76},{130,74},{142,74},{142,71}}, color={0,0,0}));
-    connect(bottom1.toSurfacePort_1, office1.toConstructionPorts4[2]) annotation
-      (Line(points={{-130,30},{-130,30},{-130,46},{-130,44},{-146,44},{-146,49}},color={0,0,0}));
-    connect(bottom2.toSurfacePort_1, office2.toConstructionPorts4[2]) annotation
-      (Line(points={{-90,30},{-90,30},{-90,46},{-106,46},{-106,49}}, color={0,0,0}));
-    connect(bottom3.toSurfacePort_1, office3.toConstructionPorts4[2]) annotation
-      (Line(points={{-50,30},{-50,30},{-50,44},{-50,46},{-66,46},{-66,49}}, color={0,0,0}));
-    connect(bottom4.toSurfacePort_1, office4.toConstructionPorts4[2]) annotation
-      (Line(points={{-30,30},{-30,30},{-30,44},{-26,44},{-26,49}}, color={0,0,0}));
-    connect(bottom5.toSurfacePort_1, office5.toConstructionPorts4[2]) annotation
-      (Line(points={{30,30},{30,30},{30,44},{14,44},{14,49}}, color={0,0,0}));
-    connect(bottom6.toSurfacePort_1, office6.toConstructionPorts4[2]) annotation
-      (Line(points={{70,30},{70,30},{70,46},{54,46},{54,49}}, color={0,0,0}));
-    connect(bottom7.toSurfacePort_1, office7.toConstructionPorts4[2]) annotation
-      (Line(points={{110,30},{110,44},{94,44},{94,49}}, color={0,0,0}));
-    connect(bottom8.toSurfacePort_1, office8.toConstructionPorts4[2]) annotation
-      (Line(points={{130,30},{130,30},{130,46},{134,46},{134,49}}, color={0,0,0}));
-    connect(wall36.toSurfacePort_1, corridor.toConstructionPorts1[1]) annotation
-      (Line(points={{-158,20},{-158,20},{-20,20},{-20,24},{-11,24}}, color={0,0,0}));
-    connect(corridor.toConstructionPorts3[1], wall38.toSurfacePort_1) annotation
-      (Line(points={{11,16},{20,16},{20,20},{158,20}}, color={127,0,0}));
-    connect(wall18.toSurfacePort_1, corridor.toConstructionPorts2[1]) annotation
-      (Line(points={{-140,38},{-140,34},{7.5,34},{7.5,31}}, color={0,0,0}));
-    connect(wall19.toSurfacePort_1, corridor.toConstructionPorts2[2]) annotation
-      (Line(points={{-100,38},{-100,34},{6.5,34},{6.5,31}}, color={0,0,0}));
-    connect(wall20.toSurfacePort_1, corridor.toConstructionPorts2[3]) annotation
-      (Line(points={{-60,38},{-62,38},{-62,34},{5.5,34},{5.5,31}}, color={0,0,0}));
-    connect(wall21.toSurfacePort_1, corridor.toConstructionPorts2[4]) annotation
-      (Line(points={{-20,38},{-20,34},{4.5,34},{4.5,31}}, color={0,0,0}));
-    connect(wall22.toSurfacePort_1, corridor.toConstructionPorts2[5]) annotation
-      (Line(points={{20,38},{20,34},{3.5,34},{3.5,31}}, color={0,0,0}));
-    connect(wall23.toSurfacePort_1, corridor.toConstructionPorts2[6]) annotation
-      (Line(points={{60,38},{60,34},{2.5,34},{2.5,31}}, color={0,0,0}));
-    connect(wall24.toSurfacePort_1, corridor.toConstructionPorts2[7]) annotation
-      (Line(points={{100,38},{100,34},{1.5,34},{1.5,31}}, color={0,0,0}));
-    connect(wall25.toSurfacePort_1, corridor.toConstructionPorts2[8]) annotation
-      (Line(points={{140,38},{140,38},{140,30},{140,34},{0.5,34},{0.5,31}}, color={0,0,0}));
+    connect(window6.toSurfacePort_1, office6.toConstructionPorts2[2]) annotation (
+       Line(points={{50,88},{50,88},{50,74},{62,74},{62,71}}, color={0,0,0}));
+    connect(window7.toSurfacePort_1, office7.toConstructionPorts2[2]) annotation (
+       Line(points={{90,88},{90,88},{90,74},{102,74},{102,71}}, color={0,0,0}));
+    connect(window8.toSurfacePort_1, office8.toConstructionPorts2[2]) annotation (
+       Line(points={{130,88},{130,88},{130,76},{130,74},{142,74},{142,71}}, color={0,0,0}));
+    connect(bottom1.toSurfacePort_1, office1.toConstructionPorts4[2]) annotation (
+       Line(points={{-130,30},{-130,30},{-130,46},{-130,44},{-146,44},{-146,49}},color={0,0,0}));
+    connect(bottom2.toSurfacePort_1, office2.toConstructionPorts4[2]) annotation (
+       Line(points={{-90,30},{-90,30},{-90,46},{-106,46},{-106,49}}, color={0,0,0}));
+    connect(bottom3.toSurfacePort_1, office3.toConstructionPorts4[2]) annotation (
+       Line(points={{-50,30},{-50,30},{-50,44},{-50,46},{-66,46},{-66,49}}, color={0,0,0}));
+    connect(bottom4.toSurfacePort_1, office4.toConstructionPorts4[2]) annotation (
+       Line(points={{-30,30},{-30,30},{-30,44},{-26,44},{-26,49}}, color={0,0,0}));
+    connect(bottom5.toSurfacePort_1, office5.toConstructionPorts4[2]) annotation (
+       Line(points={{30,30},{30,30},{30,44},{14,44},{14,49}}, color={0,0,0}));
+    connect(bottom6.toSurfacePort_1, office6.toConstructionPorts4[2]) annotation (
+       Line(points={{70,30},{70,30},{70,46},{54,46},{54,49}}, color={0,0,0}));
+    connect(bottom7.toSurfacePort_1, office7.toConstructionPorts4[2]) annotation (
+       Line(points={{110,30},{110,44},{94,44},{94,49}}, color={0,0,0}));
+    connect(bottom8.toSurfacePort_1, office8.toConstructionPorts4[2]) annotation (
+       Line(points={{130,30},{130,30},{130,46},{134,46},{134,49}}, color={0,0,0}));
+    connect(wall36.toSurfacePort_1, corridor.toConstructionPorts1[1]) annotation (
+       Line(points={{-158,20},{-158,20},{-20,20},{-20,24},{-11,24}}, color={0,0,0}));
+    connect(corridor.toConstructionPorts3[1], wall38.toSurfacePort_1) annotation (
+       Line(points={{11,16},{20,16},{20,20},{158,20}}, color={127,0,0}));
+    connect(wall18.toSurfacePort_1, corridor.toConstructionPorts2[1]) annotation (
+       Line(points={{-140,38},{-140,34},{7.5,34},{7.5,31}}, color={0,0,0}));
+    connect(wall19.toSurfacePort_1, corridor.toConstructionPorts2[2]) annotation (
+       Line(points={{-100,38},{-100,34},{6.5,34},{6.5,31}}, color={0,0,0}));
+    connect(wall20.toSurfacePort_1, corridor.toConstructionPorts2[3]) annotation (
+       Line(points={{-60,38},{-62,38},{-62,34},{5.5,34},{5.5,31}}, color={0,0,0}));
+    connect(wall21.toSurfacePort_1, corridor.toConstructionPorts2[4]) annotation (
+       Line(points={{-20,38},{-20,34},{4.5,34},{4.5,31}}, color={0,0,0}));
+    connect(wall22.toSurfacePort_1, corridor.toConstructionPorts2[5]) annotation (
+       Line(points={{20,38},{20,34},{3.5,34},{3.5,31}}, color={0,0,0}));
+    connect(wall23.toSurfacePort_1, corridor.toConstructionPorts2[6]) annotation (
+       Line(points={{60,38},{60,34},{2.5,34},{2.5,31}}, color={0,0,0}));
+    connect(wall24.toSurfacePort_1, corridor.toConstructionPorts2[7]) annotation (
+       Line(points={{100,38},{100,34},{1.5,34},{1.5,31}}, color={0,0,0}));
+    connect(wall25.toSurfacePort_1, corridor.toConstructionPorts2[8]) annotation (
+       Line(points={{140,38},{140,38},{140,30},{140,34},{0.5,34},{0.5,31}}, color={0,0,0}));
     connect(wall26.toSurfacePort_2, corridor.toConstructionPorts4[1])
       annotation (Line(points={{-60,2},{-60,4},{-1,4},{-1,9}}, color={0,0,0}));
-    connect(wall27.toSurfacePort_2, corridor.toConstructionPorts4[2]) annotation
-      (Line(points={{100,2},{100,2},{100,4},{-3,4},{-3,9}}, color={0,0,0}));
+    connect(wall27.toSurfacePort_2, corridor.toConstructionPorts4[2]) annotation (
+       Line(points={{100,2},{100,2},{100,4},{-3,4},{-3,9}}, color={0,0,0}));
     connect(wall28.toSurfacePort_2, corridor.toConstructionPorts4[3])
       annotation (Line(points={{140,2},{140,4},{-5,4},{-5,9}}, color={0,0,0}));
     connect(wall26.toSurfacePort_1, bullpen.toConstructionPorts2[1]) annotation (
@@ -808,12 +808,12 @@ model BuildingThermalMultiZone
         Line(points={{-71,-18},{-76,-18},{-80,-18},{-80,-20},{-158,-20}}, color={127,0,0}));
     connect(wall32.toSurfacePort_1, bullpen.toConstructionPorts4[1]) annotation (
         Line(points={{-60,-78},{-60,-31},{-61.3333,-31}}, color={0,0,0}));
-    connect(bullpen.toConstructionPorts4[2], bottom9.toSurfacePort_1) annotation
-      (Line(points={{-64,-31},{-64,-38},{-48,-38},{-48,-42}}, color={127,0,0}));
+    connect(bullpen.toConstructionPorts4[2], bottom9.toSurfacePort_1) annotation (
+       Line(points={{-64,-31},{-64,-38},{-48,-38},{-48,-42}}, color={127,0,0}));
     connect(corridor.toConstructionPorts4[4], bottom13.toSurfacePort_1)
       annotation (Line(points={{-7,9},{-4,9},{-4,0},{10,0},{10,-4}}, color={127,0,0}));
-    connect(window9.toSurfacePort_1, bullpen.toConstructionPorts1[2]) annotation
-      (Line(points={{-166,-30},{-122,-30},{-80,-30},{-80,-14},{-71,-14}}, color={0,0,0}));
+    connect(window9.toSurfacePort_1, bullpen.toConstructionPorts1[2]) annotation (
+       Line(points={{-166,-30},{-122,-30},{-80,-30},{-80,-14},{-71,-14}}, color={0,0,0}));
     connect(window10.toSurfacePort_1, bullpen.toConstructionPorts4[3])
       annotation (Line(points={{-50,-88},{-50,-88},{-50,-70},{-66.6667,-70},{-66.6667,-31}}, color={0,0,0}));
     connect(restroom1.toConstructionPorts3[1], wall35.toSurfacePort_1)

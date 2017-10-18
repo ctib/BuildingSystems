@@ -55,7 +55,8 @@ model HeatConduction3DWithTube
     annotation(Placement(transformation(extent={{-10,-10},{10,10}},origin={-60,-40}),iconTransformation(extent={{-10,-10},{10,10}}, origin={-60,-40})));
   BuildingSystems.Interfaces.HeatPort heatPort_z2
     annotation(Placement(transformation(extent={{-10,-10},{10,10}},origin={60,80}), iconTransformation(extent={{-10,-10},{10,10}}, origin={60,80})));
-  protected parameter Modelica.SIunits.Length edgeTube = sqrt(Modelica.Constants.pi*(diameterTube+thicknessTube)^2/4);
+protected
+            parameter Modelica.SIunits.Length edgeTube = sqrt(Modelica.Constants.pi*(diameterTube+thicknessTube)^2/4);
 equation
   connect(heaCon.heatPort_x2, heatPort_x2) annotation (Line(
       points={{8,20},{60,20}},

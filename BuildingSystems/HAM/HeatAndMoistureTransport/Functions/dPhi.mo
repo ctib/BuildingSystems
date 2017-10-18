@@ -1,5 +1,4 @@
 within BuildingSystems.HAM.HeatAndMoistureTransport.Functions;
-
 function dPhi
   "Calculates the liquid conduction coefficient"
   input Modelica.SIunits.MassConcentration dwsTabX[:];
@@ -59,3 +58,4 @@ algorithm
     value := dww * temp_wDerPhi;
   end if;
 end dPhi;
+

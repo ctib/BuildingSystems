@@ -13,8 +13,8 @@ model RadiationFixed
   parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg angleDegInc_constant = 0.0
     "Constant incident angle of the direct solar radiation";
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-    Rectangle(extent={{-60,60},{60,-60}},lineColor={230,230,230},fillColor={230,230,230},fillPattern=  FillPattern.Solid),
-    Text(extent={{-44,-56},{48,-84}},lineColor={0,0,255},fillColor={230,230,230},fillPattern=  FillPattern.Solid,textString= "%name"),
+    Rectangle(extent={{-60,60},{60,-60}},lineColor={230,230,230},fillColor={230,230,230},fillPattern = FillPattern.Solid),
+    Text(extent={{-44,-56},{48,-84}},lineColor={0,0,255},fillColor={230,230,230},fillPattern = FillPattern.Solid,textString= "%name"),
     Text(extent={{-58,40},{48,-38}},lineColor={255,128,0},textString="IrrDir,Idif,angleDegInc = const")}),
 Documentation(info="<html>
 <p>

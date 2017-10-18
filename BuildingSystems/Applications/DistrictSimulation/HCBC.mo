@@ -1402,8 +1402,8 @@ model HCBC
   Modelica.Blocks.Sources.Constant t_set_heating3(
     k=building16.parameterMap.TSetHea)
     annotation (Placement(transformation(extent={{-24,202},{-32,210}})));
-  Modelica.Blocks.Sources.Constant set_airchange3
-    (k=building16.parameterMap.airchange)
+  Modelica.Blocks.Sources.Constant set_airchange3(
+     k=building16.parameterMap.airchange)
     annotation (Placement(transformation(extent={{-24,178},{-32,186}})));
   Modelica.Blocks.Sources.Constant t_set_cooling4(
     k=building11.parameterMap.TSetCoo)

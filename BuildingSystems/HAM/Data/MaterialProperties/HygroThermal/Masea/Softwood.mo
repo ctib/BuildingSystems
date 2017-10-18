@@ -20,9 +20,10 @@ record Softwood =
       w95=-999,
       wF=575.0,
       porosity=-999,
-      A=0.0017, // value of BuildingSystems.HAM.Data.HygroThermal.Masea.OakWood
+      A=0.0017,
       myDry=200.0,
       myMoistF=-999,
       moistSup=-999)
       "Softwood (Weichholz)"
       annotation(Documentation(info="<html>source: www.masea-ensan.de</html>"));
+                  // value of BuildingSystems.HAM.Data.HygroThermal.Masea.OakWood

@@ -21,9 +21,10 @@ record PolyamidFoil =
    w95=-999,
    wF=0.618,
    porosity=0.001,
-   A=0.3, // guess value, not from MASEA data
+   A=0.3,
    myDry=4380.0,
    myMoistF=-999,
    moistSup=-999)
    "Polyamid foil (PA-Folie)"
    annotation(Documentation(info="<html>source: Frauenhofer Institut fuer Bauphysik (IBP) - Holzkirchen, Deutschland</html>"));
+            // guess value, not from MASEA data

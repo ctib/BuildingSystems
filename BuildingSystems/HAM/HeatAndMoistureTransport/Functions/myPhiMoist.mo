@@ -1,5 +1,4 @@
 within BuildingSystems.HAM.HeatAndMoistureTransport.Functions;
-
 function myPhiMoist
   "Calculates the water vapour diffusion coefficient"
   input BuildingSystems.Types.RelativeHumidity myTabX[:];
@@ -19,3 +18,4 @@ algorithm
     value := myTabY[n];
   end if;
 end myPhiMoist;
+

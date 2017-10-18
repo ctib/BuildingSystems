@@ -39,7 +39,7 @@ equation
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
     Rectangle(extent={{-10,40},{10,-40}},lineColor={230,230,230},fillColor={230,230,230},fillPattern=FillPattern.Solid,origin={0,1.77636e-015},rotation=90),
-    Text(extent={{-44,-10},{48,-38}},lineColor={0,0,255},fillColor={230,230,230},fillPattern =FillPattern.Solid,textString="%name")}),
+    Text(extent={{-44,-10},{48,-38}},lineColor={0,0,255},fillColor={230,230,230},fillPattern= FillPattern.Solid,textString="%name")}),
 Documentation(info="<html>
 <p>
 This is partial model description of an air path.

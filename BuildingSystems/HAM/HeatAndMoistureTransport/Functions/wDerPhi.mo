@@ -1,5 +1,4 @@
 within BuildingSystems.HAM.HeatAndMoistureTransport.Functions;
-
 function wDerPhi
   "Calculates the derivative of the water content"
   input Modelica.SIunits.MassConcentration w;
@@ -32,3 +31,4 @@ algorithm
     value := Modelica.Constants.small;
   end if;
 end wDerPhi;
+

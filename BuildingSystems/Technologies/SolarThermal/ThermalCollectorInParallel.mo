@@ -47,7 +47,7 @@ model ThermalCollectorInParallel
       C_A=collectorData.C_A),
     each dp_nominal=dp_nominal)
     annotation (Placement(transformation(extent={{-14,-10},{6,10}})));
-  equation
+equation
     for i in 1:nArr loop
       connect(thermalCollectorInSerie[i].radiationPort, radiationPort) annotation (
         Line(

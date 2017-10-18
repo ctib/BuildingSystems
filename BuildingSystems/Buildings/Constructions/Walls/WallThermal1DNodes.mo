@@ -3,7 +3,7 @@ model WallThermal1DNodes
   "Thermal wall model with 1D discritisation of the single layers"
   extends BuildingSystems.Buildings.BaseClasses.WallThermalGeneral;
 
-  BuildingSystems.Interfaces.HeatPort heatSourcePort =
+  BuildingSystems.Interfaces.HeatPort heatSourcePort=
     construction.layer[layerWithHeatSource].heatPort_source[nodeWithHeatSource] if heatSource
     annotation (Placement(transformation(extent={{10,-48},{30,-28}}), iconTransformation(extent={{10,-48},{30,-28}})));
 

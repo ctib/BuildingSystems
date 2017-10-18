@@ -66,8 +66,8 @@ equation
   connect(body.moisturePort_x2, absMoistBC2.moisturePort) annotation (Line(
       points={{8,2},{18,2},{18,10},{28,10}},
       color={120,0,120}));
-  connect(body.heatPort_x2, TConstant.port) annotation (Line
-      (points={{8,0},{18,0},
+  connect(body.heatPort_x2, TConstant.port) annotation (Line(
+       points={{8,0},{18,0},
       {18,-10},{28,-10}},
       color={191,0,0}));
 

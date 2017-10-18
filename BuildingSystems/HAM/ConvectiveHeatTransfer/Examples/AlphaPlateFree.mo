@@ -22,7 +22,7 @@ equation
   alpha90 = BuildingSystems.HAM.ConvectiveHeatTransfer.Surfaces.alphaPlateFree(deltaT,height,width, 90.0);
   alpha180 = BuildingSystems.HAM.ConvectiveHeatTransfer.Surfaces.alphaPlateFree(deltaT,height,width, 180.0);
   alpha45 = BuildingSystems.HAM.ConvectiveHeatTransfer.Surfaces.alphaPlateFree(deltaT,height,width, 45.0);
-  annotation(    experiment(StopTime=3600.0),
+  annotation (   experiment(StopTime=3600.0),
     __Dymola_Commands(file="modelica://BuildingSystems/Resources/Scripts/Dymola/HAM/ConvectiveHeatTransfer/Examples/AlphaPlateFree.mos" "Simulate and plot"),
     Documentation(info="<html>
     <p> This example tests the implementation of

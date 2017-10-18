@@ -33,10 +33,10 @@ block WeatherDataNetcdf
 
   annotation (defaultComponentName="weaDat",Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
     Rectangle(extent={{-100,100},{100,-100}},lineColor={170,213,255},fillColor={170,213,255},fillPattern=FillPattern.Solid),
-    Ellipse(extent={{-90,-2},{-8,-46}},  lineColor={0,128,255},fillColor={0,128,255},fillPattern=  FillPattern.Solid),
-    Ellipse(extent={{-58,22},{20,-32}},  lineColor={0,128,255},fillColor={0,128,255},fillPattern=  FillPattern.Solid),
-    Ellipse(extent={{-36,-16},{38,-64}},lineColor={0,128,255},fillColor={0,128,255},fillPattern=  FillPattern.Solid),
-    Ellipse(extent={{6,90},{90,8}},    lineColor={255,255,0},fillColor={255,255,85},fillPattern=  FillPattern.Solid),
+    Ellipse(extent={{-90,-2},{-8,-46}},  lineColor={0,128,255},fillColor={0,128,255},fillPattern = FillPattern.Solid),
+    Ellipse(extent={{-58,22},{20,-32}},  lineColor={0,128,255},fillColor={0,128,255},fillPattern = FillPattern.Solid),
+    Ellipse(extent={{-36,-16},{38,-64}},lineColor={0,128,255},fillColor={0,128,255},fillPattern = FillPattern.Solid),
+    Ellipse(extent={{6,90},{90,8}},    lineColor={255,255,0},fillColor={255,255,85},fillPattern = FillPattern.Solid),
     Text(extent={{-44,-48},{44,-118}},lineColor={0,0,0},fillColor={255,255,255},fillPattern=FillPattern.Solid,textString="NetCDF")}),
 Documentation(info="<html>
 <p>

@@ -35,15 +35,18 @@ model Ambient
   parameter Real rhoAmb(unit = "1") = 0.2
     "Reflection factor for short-wave radiation of the ground"
     annotation(Dialog(tab = "General", group = "Location"));
-  parameter Modelica.SIunits.Length zRefvWind = 10.0 // Standard value of TRY
+  parameter Modelica.SIunits.Length zRefvWind = 10.0
     "Reference height for wind measurement"
     annotation(Dialog(tab = "General", group = "Location"));
-  parameter Real P(unit = "1") = 0.4 // Typical roughness for city districts
+                                                     // Standard value of TRY
+  parameter Real P(unit = "1") = 0.4
     "Roughness exponent for wind profil calculation"
     annotation(Dialog(tab = "General", group = "Location"));
-  parameter Modelica.SIunits.Length zRefTAir = 2.0 // Standard value of TRY
+                                     // Typical roughness for city districts
+  parameter Modelica.SIunits.Length zRefTAir = 2.0
     "Reference height air temperature measurement"
     annotation(Dialog(tab = "General", group = "Location"));
+                                                   // Standard value of TRY
   parameter Real gamma(unit = "K/m") = 0.01
     "Temperature gradient of the planetary boundary layer"
     annotation(Dialog(tab = "General", group = "Location"));
@@ -88,8 +91,8 @@ model Ambient
     "Air temperature on reference height"
     annotation (Placement(transformation(extent={{-86,60},{-66,80}}),
       iconTransformation(extent={{-80,60},{-100,80}})));
-  input BuildingSystems.Interfaces.Temp_KInput TAirRef_in
-    if TAirRefSou == BuildingSystems.Buildings.Types.DataSource.Input
+  input BuildingSystems.Interfaces.Temp_KInput TAirRef_in if
+       TAirRefSou == BuildingSystems.Buildings.Types.DataSource.Input
     "Air temperature on reference height from input"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=90,origin={-70,-74}),
       iconTransformation(extent={{10,-10},{-10,10}},rotation=270,origin={-70,-90})));
@@ -120,8 +123,8 @@ model Ambient
     "Solar beam radiation of horizontal surface"
     annotation (Placement(transformation(extent={{-86,10},{-66,30}}),
       iconTransformation(extent={{-80,20},{-100,40}})));
-  input BuildingSystems.Interfaces.RadiantEnergyFluenceRateInput IrrDirHor_in
-    if IrrDirHorSou == BuildingSystems.Buildings.Types.DataSource.Input
+  input BuildingSystems.Interfaces.RadiantEnergyFluenceRateInput IrrDirHor_in if
+       IrrDirHorSou == BuildingSystems.Buildings.Types.DataSource.Input
     "Solar beam radiation of horizontal surface from input"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=90,origin={-28,-74}),
       iconTransformation(extent={{10,-10},{-10,10}},rotation=270,origin={-30,-90})));
@@ -166,8 +169,8 @@ model Ambient
     "Angle of wind direction on reference height"
     annotation (Placement(transformation(extent={{-86,-46},{-66,-26}}),
       iconTransformation(extent={{-80,-40},{-100,-20}})));
-  input BuildingSystems.Interfaces.Angle_degInput angleDegWindRef_in
-    if angleDegWindRefSou == BuildingSystems.Buildings.Types.DataSource.Input
+  input BuildingSystems.Interfaces.Angle_degInput angleDegWindRef_in if
+       angleDegWindRefSou == BuildingSystems.Buildings.Types.DataSource.Input
     "Angle of wind direction on reference height from input"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=90,origin={30,-74}),
       iconTransformation(extent={{10,-10},{-10,10}},rotation=270,origin={30,-90})));
@@ -180,8 +183,8 @@ model Ambient
     annotation (Dialog(tab="Advanced", group="Data source"));
   Real cloudCover(min = 0.0,max = 8.0, unit = "1")
     "Cloud cover of the sky";
-  input Modelica.Blocks.Interfaces.RealInput cloudCover_in(min = 0.0,max = 8.0, unit = "1")
-    if cloudCoverSou == BuildingSystems.Buildings.Types.DataSource.Input
+  input Modelica.Blocks.Interfaces.RealInput cloudCover_in(min = 0.0,max = 8.0, unit = "1") if
+       cloudCoverSou == BuildingSystems.Buildings.Types.DataSource.Input
     "Cloud cover of the sky from input"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=90,origin={50,-74}),
       iconTransformation(extent={{10,-10},{-10,10}},rotation=270,origin={50,-90})));

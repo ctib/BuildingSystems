@@ -29,7 +29,7 @@ model WallHygroThermal1DNodes
   Modelica.Thermal.HeatTransfer.Sources.FixedTemperature tempBC(T=293.15)
     annotation (Placement(transformation(extent={{26,-10},{18,-2}})));
   BuildingSystems.HAM.HeatAndMoistureTransport.Sources.AbsoluteMoistureFixed moistBC(
-    x_constant =0.008)
+    x_constant= 0.008)
     annotation (Placement(transformation(extent={{28,0},{16,12}})));
 equation
   connect(surface1.toConstructionPort, wall.toSurfacePort_1) annotation (Line(
@@ -79,4 +79,4 @@ First implementation.
 </li>
 </ul>
 </html>"));
-  end WallHygroThermal1DNodes;
+end WallHygroThermal1DNodes;

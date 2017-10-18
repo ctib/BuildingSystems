@@ -1,6 +1,5 @@
 within BuildingSystems.Buildings.Constructions;
-package Doors
-  "Package with door models"
+package Doors "Package with door models"
   extends Modelica.Icons.Package;
 
   annotation (Icon(graphics={

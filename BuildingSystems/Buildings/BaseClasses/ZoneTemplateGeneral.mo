@@ -72,27 +72,33 @@ partial model ZoneTemplateGeneral
     "Long-wave and short-wave radiation calculation of the zone"
     annotation (Placement(transformation(extent={{-24,-44},{24,4}})));
   BuildingSystems.Buildings.Interfaces.SurfaceToConstructionPorts toConstructionPorts1[nConstructions1](
-    moisturePort.x(each start = 0.005))
+      moisturePort(
+    x(             each start = 0.005)))
     "Interfaces of the zone to constructions with orientation 1"
     annotation (Placement(transformation(extent={{-10,-40},{10,40}},rotation=180,origin={-94,40}), iconTransformation(extent={{-120,0},{-100,80}})));
   BuildingSystems.Buildings.Interfaces.SurfaceToConstructionPorts toConstructionPorts3[nConstructions3](
-    moisturePort.x(each start = 0.005))
+      moisturePort(
+    x(             each start = 0.005)))
     "Interfaces of the zone to constructions with orientation 2"
     annotation (Placement(transformation(extent={{-10,-40},{10,40}},rotation=180,origin={94,-40}), iconTransformation(extent={{100,-80},{120,0}})));
   BuildingSystems.Buildings.Interfaces.SurfaceToConstructionPorts toConstructionPorts2[nConstructions2](
-    moisturePort.x(each start = 0.005))
+      moisturePort(
+    x(             each start = 0.005)))
     "Interfaces of the zone to constructions with orientation 3"
     annotation (Placement(transformation(extent={{-10,-40},{10,40}},rotation=90,origin={40,94}), iconTransformation(extent={{-10,-40},{10,40}},rotation=90,origin={40,110})));
   BuildingSystems.Buildings.Interfaces.SurfaceToConstructionPorts toConstructionPorts4[nConstructions4](
-    moisturePort.x(each start = 0.005))
+      moisturePort(
+    x(             each start = 0.005)))
     "Interfaces of the zone to constructions with orientation 4"
     annotation (Placement(transformation(extent={{-10,-40},{10,40}},rotation=90,origin={-40,-94}), iconTransformation(extent={{-10,-40},{10,40}},rotation=90,origin={-40,-110})));
   BuildingSystems.Buildings.Interfaces.SurfaceToConstructionPorts toConstructionPorts5[nConstructions5](
-    moisturePort.x(each start = 0.005))
+      moisturePort(
+    x(             each start = 0.005)))
     "Interfaces of the zone to constructions with orientation 5"
     annotation (Placement(transformation(extent={{-10,-40},{10,40}},rotation=180,origin={84,80}),  iconTransformation(extent={{80,20},{100,100}})));
   BuildingSystems.Buildings.Interfaces.SurfaceToConstructionPorts toConstructionPorts6[nConstructions6](
-    moisturePort.x(each start = 0.005))
+      moisturePort(
+    x(             each start = 0.005)))
     "Interfaces of the zone to constructions with orientation 6"
     annotation (Placement(transformation(extent={{-10,-40},{10,40}},rotation=180,origin={-84,-80}), iconTransformation(extent={{-10,-40},{10,40}},rotation=180,origin={-90,-60})));
   Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_b airpathPorts1[nAirpathes1](
@@ -120,39 +126,39 @@ partial model ZoneTemplateGeneral
     "Interfaces of the zone to air pathes with orientation 6"
     annotation (Placement(transformation(extent={{-40,-10},{40,10}},rotation=270,origin={84,40}), iconTransformation(extent={{-40,-10},{40,10}},rotation=270,origin={90,-20})));
   BuildingSystems.Buildings.Surfaces.SurfacesToAir surfaces1(
-    nSurfaces=nConstructions1,
-    each surface.convectionOnSurface = convectionOnSurfaces,
-    each surface.alphaConstant = alphaConstant)
+    nSurfaces=nConstructions1, surface(
+    each convectionOnSurface =         convectionOnSurfaces,
+    each alphaConstant =         alphaConstant))
     "surface models of the zone with orientation 1"
     annotation (Placement(transformation(extent={{-24,-26},{24,26}},origin={-80,40})));
   BuildingSystems.Buildings.Surfaces.SurfacesToAir surfaces2(
-    nSurfaces=nConstructions2,
-    each surface.convectionOnSurface = convectionOnSurfaces,
-    each surface.alphaConstant = alphaConstant)
+    nSurfaces=nConstructions2, surface(
+    each convectionOnSurface =         convectionOnSurfaces,
+    each alphaConstant =         alphaConstant))
     "surface models of the zone with orientation 2"
     annotation (Placement(transformation(extent={{-24,-26},{24,26}},rotation=-90,origin={40,80})));
   BuildingSystems.Buildings.Surfaces.SurfacesToAir surfaces3(
-    nSurfaces=nConstructions3,
-    each surface.convectionOnSurface = convectionOnSurfaces,
-    each surface.alphaConstant = alphaConstant)
+    nSurfaces=nConstructions3, surface(
+    each convectionOnSurface =         convectionOnSurfaces,
+    each alphaConstant =         alphaConstant))
     "surface models of the zone with orientation 3"
     annotation (Placement(transformation(extent={{-24,-26},{24,26}},rotation=180,origin={80,-40})));
   BuildingSystems.Buildings.Surfaces.SurfacesToAir surfaces4(
-    nSurfaces=nConstructions4,
-    each surface.convectionOnSurface = convectionOnSurfaces,
-    each surface.alphaConstant = alphaConstant)
+    nSurfaces=nConstructions4, surface(
+    each convectionOnSurface =         convectionOnSurfaces,
+    each alphaConstant =         alphaConstant))
     "surface models of the zone with orientation 4"
     annotation (Placement(transformation(extent={{-24,-26},{24,26}},rotation=90,origin={-40,-80})));
   BuildingSystems.Buildings.Surfaces.SurfacesToAir surfaces5(
-    nSurfaces=nConstructions5,
-    each surface.convectionOnSurface = convectionOnSurfaces,
-    each surface.alphaConstant = alphaConstant)
+    nSurfaces=nConstructions5, surface(
+    each convectionOnSurface =         convectionOnSurfaces,
+    each alphaConstant =         alphaConstant))
     "surface models of the zone with orientation 5"
     annotation (Placement(transformation(extent={{-24,-26},{24,26}},rotation=180,origin={80,-40})));
   BuildingSystems.Buildings.Surfaces.SurfacesToAir surfaces6(
-    nSurfaces=nConstructions6,
-    each surface.convectionOnSurface = convectionOnSurfaces,
-    each surface.alphaConstant = alphaConstant)
+    nSurfaces=nConstructions6, surface(
+    each convectionOnSurface =         convectionOnSurfaces,
+    each alphaConstant =         alphaConstant))
     "surface models of the zone with orientation 6"
     annotation (Placement(transformation(extent={{-24,-26},{24,26}},rotation=90,origin={-40,-80})));
   BuildingSystems.Interfaces.Temp_KOutput TSurfMean
@@ -161,7 +167,7 @@ partial model ZoneTemplateGeneral
 protected
   parameter Integer nHeatSourcesTotal = 0
     "Overall number of internal heat sources of the thermal zone";
-	// Note, that with following three lines it is assumed, that there is always at least ONE construction!
+ // Note, that with following three lines it is assumed, that there is always at least ONE construction!
   parameter Integer nSumConstructions = nConstructions1 + nConstructions2 + nConstructions3 + nConstructions4 + nConstructions5 + nConstructions6;
   parameter Integer nSurfaces = max(nSumConstructions,1)
     "Overall number of surfaces of the zone";
@@ -198,7 +204,7 @@ equation
     annotation (Line(points={{19.2,-20},{36,-20},{36,-20}}, color={0,0,127}));
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-  Rectangle(extent={{-80,80},{80,-80}},lineColor={230,230,230},fillColor={230,230,230},fillPattern =FillPattern.Solid),
+  Rectangle(extent={{-80,80},{80,-80}},lineColor={230,230,230},fillColor={230,230,230},fillPattern= FillPattern.Solid),
   Text(extent={{-82,16},{10,-12}}, lineColor={0,0,255},fillColor={230,230,230},fillPattern = FillPattern.Solid,textString= "%name"),
   Rectangle(extent={{100,100},{80,-100}},lineColor={255,170,85},fillColor={255,170,85},fillPattern = FillPattern.Solid),
   Rectangle(extent={{-80,100},{-100,-100}},lineColor={255,170,85},fillColor={255,170,85},fillPattern = FillPattern.Solid),

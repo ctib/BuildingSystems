@@ -5,8 +5,8 @@ model Building1Zone0DDistrict
     final VAir = 0.8*length*width*heightSto*nSto,
     final AAmb = ARoo+AFac,
     final AGro = length*width,
-    final AInn = 2.0 * length * width * (nSto-1) // area of interior ceilings
-      + (2.0 * integer(width/4.0+0.5) * length + 2.0 * integer(length/4.0+0.5) * width) * nSto, // area of interior walls
+    final AInn = 2.0 * length * width * (nSto-1)
+      + (2.0 * integer(width/4.0+0.5) * length + 2.0 * integer(length/4.0+0.5) * width) * nSto,
     final UValAmb = (ARoo*UValRoo+AFac*UValFac)/(ARoo+AFac),
     UValGro = 1.0,
     UValInn = 1.0,
@@ -22,7 +22,7 @@ model Building1Zone0DDistrict
     final nWindows = 4,
     final height = heightSto*nSto,
     AWin = {fWin*length*heightSto*nSto,fWin*width*heightSto*nSto,fWin*length*heightSto*nSto,fWin*width*heightSto*nSto},
-    UValWin = {2.0,2.0,2.0,2.0});
+    UValWin = {2.0,2.0,2.0,2.0});                // area of interior ceilings                   // area of interior walls
   parameter Modelica.SIunits.Length length = 10.0
     "Length of the building";
   parameter Modelica.SIunits.Length width = 10.0

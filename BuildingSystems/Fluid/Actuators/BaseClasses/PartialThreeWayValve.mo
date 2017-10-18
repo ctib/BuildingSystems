@@ -4,7 +4,8 @@ partial model PartialThreeWayValve "Partial three way valve"
     final mDyn_flow_nominal = m_flow_nominal,
       redeclare replaceable
       BuildingSystems.Fluid.Actuators.BaseClasses.PartialTwoWayValve res1
-        constrainedby BuildingSystems.Fluid.Actuators.BaseClasses.PartialTwoWayValve(
+        constrainedby
+      BuildingSystems.Fluid.Actuators.BaseClasses.PartialTwoWayValve(
           deltaM=deltaM,
           dp(start=dpValve_nominal/2),
           from_dp=from_dp,
@@ -20,7 +21,8 @@ partial model PartialThreeWayValve "Partial three way valve"
         m_flow_nominal=m_flow_nominal),
       redeclare replaceable
       BuildingSystems.Fluid.Actuators.BaseClasses.PartialTwoWayValve res3
-        constrainedby BuildingSystems.Fluid.Actuators.BaseClasses.PartialTwoWayValve(
+        constrainedby
+      BuildingSystems.Fluid.Actuators.BaseClasses.PartialTwoWayValve(
           deltaM=deltaM,
           dp(start=dpValve_nominal/2),
           from_dp=from_dp,

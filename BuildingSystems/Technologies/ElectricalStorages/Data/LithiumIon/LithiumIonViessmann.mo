@@ -11,6 +11,7 @@ record  LithiumIonViessmann =
   etaLoad = 0.93,
   fDis = 0.1/24.0/3600.0,
   PLoad_max = 2850.0,
-  PCharge_max = 2850.0)
+  PCharge_max = 2850.0,
+  R_int = 10/1000)
   "Lithium Ion Viessmann: 4.7 kWh"
   annotation(Documentation(info= "<html>Source: PolySun version 9.2.9<br/></html>"));
