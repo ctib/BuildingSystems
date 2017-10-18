@@ -2,20 +2,21 @@ within BuildingSystems.Technologies.ElectricalStorages.Examples;
 model BatteryComplex "Example of the extended electrical battery model"
   import BuildingSystems;
   extends Modelica.Icons.Example;
-  BuildingSystems.Technologies.ElectricalStorages.BatteryComplex battery(
-    nBat=3, redeclare
+  BuildingSystems.Technologies.ElectricalStorages.BatteryLeadAcid battery(
+      redeclare
       BuildingSystems.Technologies.ElectricalStorages.Data.LeadAcid.LeadAcidGeneric
-      batteryData)
+      batteryData, nBat=1)
     annotation (Placement(transformation(extent={{-70,50},{-50,70}})));
   Modelica.Blocks.Sources.Pulse gain(
-    amplitude=400,
     width=50,
-    period=7200)
+    period=7200,
+    amplitude=200)
     annotation (Placement(transformation(extent={{-84,56},{-76,64}})));
   Modelica.Blocks.Sources.Pulse load(
     period=2400,
-    amplitude=56000,
-    width=5) annotation (Placement(transformation(extent={{-36,56},{-44,64}})));
+    width=10,
+    amplitude=8640)
+             annotation (Placement(transformation(extent={{-36,56},{-44,64}})));
 equation
   connect(battery.PCharge, gain.y) annotation (Line(
       points={{-65,60},{-75.6,60}},
