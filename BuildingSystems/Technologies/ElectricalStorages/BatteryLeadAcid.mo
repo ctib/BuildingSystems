@@ -93,9 +93,6 @@ equation
   PLoadEff = if PNet <= 0.0 and EAva <= 0.0 then k * (h2 - h1) else 0.5 * (1.0 + Modelica.Math.tanh(100000.0*(SOC-1.1*SOC_min)))
     * BuildingSystems.Utilities.SmoothFunctions.softcut_upper(-PNet/etaLoad,PLoad_max,0.001);
 
-  // then 0.5 * (1.0 + Modelica.Math.tanh(100000.0*(SOC-1.1*SOC_min)))
-  //   * BuildingSystems.Utilities.SmoothFunctions.softcut_upper(-PNet/etaLoad,PLoad_max,0.001) else 0.0;
-
   PGrid = if PNet > 0.0 then PNet - PChargeEff/etaCharge
     else PNet + PLoadEff*etaLoad;
 
