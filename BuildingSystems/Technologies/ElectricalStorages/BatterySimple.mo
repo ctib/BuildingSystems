@@ -1,5 +1,6 @@
 within BuildingSystems.Technologies.ElectricalStorages;
 model BatterySimple
+
   input BuildingSystems.Interfaces.PowerInput PCharge
     "Power of the electrical source"
     annotation (Placement(transformation(extent={{-80,-20},{-40,20}}),                                                                                                    iconTransformation(extent={{-60,-10},{-40,10}})));
@@ -66,8 +67,8 @@ protected
 equation
   h1 = EAva/c;
   h2 = EBou/(1-c);
-  der(EAva) = PChargeEff - PLoadEff - fDis * E + k*(h2 - h1);
-  der(EBou) = -k*(h2 - h1);
+  der(EAva) = PChargeEff - PLoadEff + k*(h2 - h1);
+  der(EBou) = -k*(h2 - h1) - fDis * E;
   E = EAva + EBou;
   SOC = E / E_nominal;
 
