@@ -59,7 +59,7 @@ model BatteryLeadAcid "Kinetic battery model for lead acid batteries"
     displayUnit="kWh",
     start = E_nominal * SOC_start)
     "Total charge of the battery";
-  Modelica.SIunits.Voltage VBattery(
+  Modelica.SIunits.Voltage UBattery(
     start = batteryData.U_nominal)
     "Battery terminal voltage";
   Modelica.SIunits.Current INet
@@ -96,11 +96,11 @@ equation
   PGrid = if PNet > 0.0 then PNet - PChargeEff/etaCharge
     else PNet + PLoadEff*etaLoad;
 
-  VBattery = 13 + INet * R_int;
+  UBattery = 13 + INet * R_int;
 
   INet = PNet/batteryData.U_nominal;
-  ILoadEff = PLoadEff/VBattery;
-  IChargeEff = PChargeEff/VBattery;
+  ILoadEff = PLoadEff/UBattery;
+  IChargeEff = PChargeEff/UBattery;
 
 
     annotation (defaultComponentName="battery", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),graphics={
