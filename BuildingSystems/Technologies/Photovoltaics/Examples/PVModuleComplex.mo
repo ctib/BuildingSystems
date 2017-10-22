@@ -26,20 +26,20 @@ model PVModuleComplex
     annotation (Placement(transformation(extent={{-32,48},{-36,52}})));
 equation
   connect(weatherData.y[1],radiation.IrrDirHor) annotation (Line(
-      points={{-81.4,59.4857},{-76,59.4857},{-76,84},{-71.6,84}},
+      points={{-81.4,60},{-76,60},{-76,84},{-71.6,84}},
       color={0,0,0},
       smooth=Smooth.None));
   connect(weatherData.y[2],radiation.IrrDifHor) annotation (Line(
-      points={{-81.4,59.6571},{-76,59.6571},{-76,80},{-71.6,80}},
+      points={{-81.4,60},{-76,60},{-76,80},{-71.6,80}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(weatherData.y[3],from_degC.u) annotation (Line(
-      points={{-81.4,59.8286},{-76,59.8286},{-76,60},{-72.8,60}},
+      points={{-81.4,60},{-76,60},{-76,60},{-72.8,60}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(radiation.radiationPort, pvField.radiationPort)
     annotation (Line(
-      points={{-56,77.8},{-48,77.8},{-48,52}},
+      points={{-56,77.8},{-46,77.8},{-46,52}},
       color={255,255,0},
       smooth=Smooth.None));
   connect(pvField.TAmb, from_degC.y) annotation (Line(
