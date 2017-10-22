@@ -13,4 +13,5 @@ createPlot(
   online = false,
   filename = "IVCurveGeneration.mat",
   leftTitleType = 1,
-  bottomTitleType = 1);
+  bottomTitleType = 1,
+  bottomTitle = "U in [V]");
