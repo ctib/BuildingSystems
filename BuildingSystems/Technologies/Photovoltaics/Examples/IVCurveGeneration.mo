@@ -41,7 +41,9 @@ at constant temperature
 and direct horizontal radiation
 ")}),
     experiment(StartTime=0.0, StopTime=3.1536e+007),
-    __Dymola_Commands(file="modelica://BuildingSystems/Resources/Scripts/Dymola/Technologies/Photovoltaics/Examples/PVModuleComplex.mos" "Simulate and plot"),
+    __Dymola_Commands(file=
+          "modelica://BuildingSystems/Resources/Scripts/Dymola/Technologies/Photovoltaics/Examples/IVCurveGeneration.mos"
+        "Simulate and plot"),
 Documentation(info="<html>
 <p> This example tests the implementation of
 <a href=\"modelica://BuildingSystems.Technologies.Photovoltaics.PVModuleComplex\">
