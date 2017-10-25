@@ -36,5 +36,5 @@ package PhotovoltaicIVCurves
           21.8,1.94;
           22.2,1.16;
           22.6,0.3;
-          23,0]);
+          22.73,0]);
 end PhotovoltaicIVCurves;
