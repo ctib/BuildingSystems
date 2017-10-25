@@ -46,6 +46,10 @@ thumbs.db
 *.log
 *.synctex.gz
 #
+#Ignore GenOpt result files
+00_InfoFile_after_GenOpt.txt
+result.txt
+#
 # Ignore some other files
 *.orig
 *.sdf
