@@ -1,0 +1,17 @@
+simulateModel("BuildingSystems.Technologies.Photovoltaics.Examples.IVCurveParameterOptimization", stopTime=23, method="dassl", resultFile="IVCurveParameterOptimization");
+removePlots();
+createPlot(
+  id = 1,
+  position = {0, 0, 600, 500},
+  y = {"pvField.IField","IVcurve_reference.y"},
+  autoscale = true,
+  autoerase = true,
+  autoreplot = true,
+  description = false,
+  grid = true,
+  color = true,
+  online = false,
+  filename = "IVCurveParameterOptimization.mat",
+  leftTitleType = 1,
+  bottomTitleType = 1,
+  bottomTitle = "U in [V]");
