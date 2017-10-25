@@ -20,13 +20,21 @@ model IVCurveParameterOptimization
     "Module temperature at test conditions"
     annotation (Placement(transformation(extent={{-76,68},{-68,76}})));
   Modelica.Blocks.Sources.TimeTable IVcurve_reference(table=IVcurve_ref.UI)
-    annotation (Placement(transformation(extent={{-22,62},{-30,70}})));
+    annotation (Placement(transformation(extent={{-24,18},{-32,26}})));
   Modelica.Blocks.Sources.Constant constV(k=12)
     "Module temperature at test conditions";
   Modelica.Blocks.Sources.Ramp increasVoltage(height=pvField.pvModuleData.Ul0,
       duration=pvField.pvModuleData.Ul0)
     "Increasing voltage until open circuit voltage"
-    annotation (Placement(transformation(extent={{-22,46},{-30,54}})));
+    annotation (Placement(transformation(extent={{-24,46},{-32,54}})));
+  Modelica.Blocks.Math.MultiSum ISum(k={1,-1}, nu=2)
+    annotation (Placement(transformation(extent={{-38,26},{-42,30}})));
+  Modelica.Blocks.Math.Product Idiff_sq
+    annotation (Placement(transformation(extent={{-46,26},{-50,30}})));
+  Modelica.Blocks.Math.Sqrt sqrt1
+    annotation (Placement(transformation(extent={{-58,26},{-62,30}})));
+  Modelica.Blocks.Continuous.Integrator Idiff_sum
+    annotation (Placement(transformation(extent={{-52,26},{-56,30}})));
     annotation (Placement(transformation(extent={{-20,68},{-28,76}})));
 equation
   connect(pvField.TAmb, from_degC.y) annotation (Line(
@@ -38,10 +46,22 @@ equation
           72}},            color={0,0,127}));
   connect(pvField.radiationPort, constRadiation.radiationPort) annotation (Line(
         points={{-46,52},{-46,52},{-46,60},{-67.2,60}}, color={244,125,35}));
-  connect(increasVoltage.y, pvField.UField) annotation (Line(points={{-30.4,50},
-          {-35.2,50},{-40,50}}, color={0,0,127}));
+  connect(increasVoltage.y, pvField.UField) annotation (Line(points={{-32.4,50},
+          {-32.4,50},{-40,50}}, color={0,0,127}));
+  connect(Idiff_sq.u1, ISum.y) annotation (Line(points={{-45.6,29.2},{-44,29.2},
+          {-44,28},{-42.34,28}}, color={0,0,127}));
+  connect(Idiff_sq.u2, ISum.y) annotation (Line(points={{-45.6,26.8},{-44,26.8},
+          {-44,28},{-42.34,28}}, color={0,0,127}));
+  connect(pvField.IField, ISum.u[1]) annotation (Line(points={{-40,48},{-36,48},
+          {-36,28.7},{-38,28.7}}, color={0,0,127}));
+  connect(IVcurve_reference.y, ISum.u[2]) annotation (Line(points={{-32.4,22},{
+          -36,22},{-36,27.3},{-38,27.3}}, color={0,0,127}));
+  connect(Idiff_sq.y, Idiff_sum.u)
+    annotation (Line(points={{-50.2,28},{-51.6,28}}, color={0,0,127}));
+  connect(Idiff_sum.y, sqrt1.u)
+    annotation (Line(points={{-56.2,28},{-57.6,28}}, color={0,0,127}));
   annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,0},{-20,100}}), graphics={
-    Text(extent={{-60,22},{-60,18}},lineColor={0,0,255},fontSize=22,
+    Text(extent={{-60,8},{-60,4}},  lineColor={0,0,255},fontSize=22,
           textString="Model to run with GenOpt to calculate 
 optimized PV module parameters.")}),
     experiment(StopTime=22.73),
