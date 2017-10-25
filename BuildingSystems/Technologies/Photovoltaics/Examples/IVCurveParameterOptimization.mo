@@ -36,6 +36,7 @@ model IVCurveParameterOptimization
   Modelica.Blocks.Continuous.Integrator Idiff_sum
     annotation (Placement(transformation(extent={{-52,26},{-56,30}})));
   Interfaces.GenOptInterface genOptInterface
+    annotation (Placement(transformation(extent={{-72,18},{-64,26}})));
     annotation (Placement(transformation(extent={{-20,68},{-28,76}})));
 equation
   connect(pvField.TAmb, from_degC.y) annotation (Line(
@@ -62,6 +63,7 @@ equation
   connect(Idiff_sum.y, sqrt1.u)
     annotation (Line(points={{-56.2,28},{-57.6,28}}, color={0,0,127}));
   connect(sqrt1.y, genOptInterface.costFunction) annotation (Line(points={{
+          -62.2,28},{-68,28},{-68,25.2}}, color={0,0,127}));
   annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,0},{-20,100}}), graphics={
     Text(extent={{-60,8},{-60,4}},  lineColor={0,0,255},fontSize=22,
           textString="Model to run with GenOpt to calculate 
