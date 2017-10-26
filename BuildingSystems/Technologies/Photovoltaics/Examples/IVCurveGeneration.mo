@@ -45,16 +45,7 @@ and direct horizontal radiation
           "modelica://BuildingSystems/Resources/Scripts/Dymola/Technologies/Photovoltaics/Examples/IVCurveGeneration.mos"
         "Simulate and plot"),
 Documentation(info="<html>
-<p> This example tests the implementation of
-<a href=\"modelica://BuildingSystems.Technologies.Photovoltaics.PVModuleComplex\">
-BuildingSystems.Technologies.Photovoltaics.PVModuleComplex</a>.
-</p>
+<p>This example generates IV curves with <a href=\"modelica://BuildingSystems.Technologies.Photovoltaics.PVModuleComplex\">BuildingSystems.Technologies.Photovoltaics.PVModuleComplex</a>. </p>
 </html>", revisions="<html>
-<ul>
-<li>
-March 7, 2015, by Christoph Nytsch-Geusen:<br/>
-First implementation.
-</li>
-</ul>
 </html>"));
 end IVCurveGeneration;

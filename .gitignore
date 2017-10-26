@@ -48,7 +48,12 @@ thumbs.db
 #
 # Ignore GenOpt result files
 00_InfoFile_after_GenOpt.txt
+dsinTemplate.txt
+GenOpt.log
+OutputListingAll.txt
+OutputListingMain.txt
 result.txt
+#
 # Ignore some other files
 *.orig
 *.sdf

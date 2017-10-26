@@ -68,21 +68,26 @@ equation
     Text(extent={{-60,8},{-60,4}},  lineColor={0,0,255},fontSize=22,
           textString="Model to run with GenOpt to calculate 
 optimized PV module parameters.")}),
-    experiment(StopTime=22.74),
+    experiment(StopTime=22.76),
     __Dymola_Commands(file=
           "Resources/Scripts/Dymola/Technologies/Photovoltaics/Examples/PVModuleParameterOpt.mos"
         "Simulate and plot"),
 Documentation(info="<html>
-<p> This example tests the implementation of
-<a href=\"modelica://BuildingSystems.Technologies.Photovoltaics.PVModuleComplex\">
-BuildingSystems.Technologies.Photovoltaics.PVModuleComplex</a>.
-</p>
+<p>This example tests uses the IV curve generator example <a href=\"modelica://BuildingSystems.Technologies.Photovoltaics.PVModuleComplex\">BuildingSystems.Technologies.Photovoltaics.</a><a href=\"modelica://BuildingSystems.Technologies.Photovoltaics.IVCurveGeneration\">PVModuleComplex</a> to create a model which can be used with <a href=\"https://simulationresearch.lbl.gov/GO/\">GenOpt</a> to calibrate the characteristic PV module factors c1, c2, cs1, cs2, RSer, and RPar. </p>
+<h4>Instructions</h4>
+<ol>
+<li>Insert recorded reference curve to <a href=\"modelica://
+BuildingSystems.Technologies.Photovoltaics.Data.PhotovoltaicIVCurves\">BuildingSystems.Technologies.Photovoltaics.Data.PhotovoltaicIVCurves</a><br><i>Hint: extend the number of base points at the increased slope around MPP</i></li>
+<li>Select recorded reference curve within the code (line 11)</li>
+<li>Use<i> Commands -&GT; Simulate and plot</i> to generate dymosim.exe.<br>Note that the working directory will be switched to <a href=\"modelica://BuildingSystems/Resources/GenOpt/PVParameterOptimization/\">BuildingSystems/Resources/GenOpt/PVParameterOptimization</a></li>
+<li>Review the difference between reference curve and simulated curve in the simulation tab.<br>Vary the parameters c1, c2, cs1, cs2, RPar, and RSer and run <i>Simulate and plot</i> again.<br>Try to manually approach the reference curve.<br><i>Hint: you can review the GenOpt interface inpute to review the deviation between both curves. A deviation below 10 should be achieved for a successfull parameter optimization.</i></li>
+<li>Review the <a href=\"modelica://BuildingSystems/Resources/GenOpt/PVParameterOptimization/dsin.txt\">dsin.txt</a> file within the new working directory.<br>Locate the table &QUOT;double initialValue&QUOT; and exchange the values for c1, c2, cs1, cs2, RSer, and RPar with &percnt;c1&percnt;, &percnt;c2&percnt;, &percnt;cs1&percnt;, &percnt;cs2&percnt;, &percnt;RSer&percnt;, and &percnt;RPar&percnt;.</li>
+<p>Save the file as &QUOT;dsinTemplate.txt&QUOT;.</p>
+<p><img src=\"modelica://BuildingSystems/Resources/Images/Utilities/GenOpt_dsintxt.png\"/></p>
+<li>Open <a href=\"modelica://BuildingSystems/Resources/GenOpt/PVParameterOptimization/command.txt\">command.txt</a> and exchange the initial parameter (Ini) of each variable to the ones which you gained in step 4.<br>Review the upper and lower boundary and step size for each parameter (Min, Max, Step).<br><i>Hint: the step size should be choosen around Step = Ini * 10E-2.</i></li>
+<li>Open GenOpt and locate <a href=\"modelica://BuildingSystems/Resources/GenOpt/PVParameterOptimization/optWinXP.ini\">optWinXP.ini</a> within the working directory.</li>
+<li>The optimized paramter can be found at the end of in the OutputListingMain.txt</li>
+</ol>
 </html>", revisions="<html>
-<ul>
-<li>
-March 7, 2015, by Christoph Nytsch-Geusen:<br/>
-First implementation.
-</li>
-</ul>
 </html>"));
 end IVCurveParameterOptimization;

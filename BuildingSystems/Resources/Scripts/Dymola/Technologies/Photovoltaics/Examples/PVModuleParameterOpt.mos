@@ -1,4 +1,7 @@
-simulateModel("BuildingSystems.Technologies.Photovoltaics.Examples.IVCurveParameterOptimization", stopTime=22.74, method="dassl", resultFile="IVCurveParameterOptimization");
+cd("./Resources/GenOpt/PVParameterOptimization");
+translateModel("BuildingSystems.Technologies.Photovoltaics.Examples.IVCurveParameterOptimization");
+simTime = pvField.pvModuleData.Ul0;
+simulateModel("BuildingSystems.Technologies.Photovoltaics.Examples.IVCurveParameterOptimization", stopTime=simTime, method="dassl", resultFile="IVCurveParameterOptimization");
 removePlots();
 createPlot(
   id = 1,
