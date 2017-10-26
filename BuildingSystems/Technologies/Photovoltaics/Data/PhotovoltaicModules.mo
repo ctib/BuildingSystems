@@ -312,6 +312,8 @@ package PhotovoltaicModules
       tIk0 = 0.012,
       tUl0 = -0.298,
       Eg = 1.107);
+
+  /* Parameter Spectra Volt 100M36S */
   record SpectraVolt100M36S =   DataSetPhotovoltaicModule (
     PEl_nominal =  100.0,
     RPar = 935.8011,
