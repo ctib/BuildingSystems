@@ -23,8 +23,8 @@ model IVCurveParameterOptimization
     annotation (Placement(transformation(extent={{-24,18},{-32,26}})));
   Modelica.Blocks.Sources.Constant constV(k=12)
     "Module temperature at test conditions";
-  Modelica.Blocks.Sources.Ramp increasVoltage(height=pvField.pvModuleData.Ul0,
-      duration=pvField.pvModuleData.Ul0)
+  Modelica.Blocks.Sources.Ramp increasVoltage(height=pvField.pvModuleData.Ul0
+         + 1, duration=pvField.pvModuleData.Ul0 + 1)
     "Increasing voltage until open circuit voltage"
     annotation (Placement(transformation(extent={{-24,46},{-32,54}})));
   Modelica.Blocks.Math.MultiSum ISum(k={1,-1}, nu=2)
