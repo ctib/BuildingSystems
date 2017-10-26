@@ -3,5 +3,5 @@ PVModuleComplexMPP
 PVModuleControlledTiltAngle
 PVModuleSimple
 PVModuleSimpleMPP
-IVCurveGeneration
+IVCurveGenerator
 IVCurveParameterOptimization

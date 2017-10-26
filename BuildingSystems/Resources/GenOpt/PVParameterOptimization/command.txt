@@ -30,9 +30,9 @@ Vary{
   Step =0.000001;
   }
   Parameter{
-  Name = 935.8011;
+  Name = RPar;
   Min = 1;
-  Ini = 250;
+  Ini = 935.8011;
   Max = 1000;
   Step = 0.1;
   }

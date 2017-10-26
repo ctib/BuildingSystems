@@ -1,13 +1,13 @@
 within BuildingSystems.Technologies.Photovoltaics.Examples;
-model IVCurveGeneration
+model IVCurveGenerator
   "Example to create IV curves for PV modules at constant radiation"
   extends Modelica.Icons.Example;
   BuildingSystems.Technologies.Photovoltaics.PVModules.PVModuleComplex pvField(
     angleDegAzi_constant=0.0,
-    redeclare Data.PhotovoltaicModules.SpectraVolt100M36S pvModuleData,
     nModPar=1,
     nModSer=1,
-    angleDegTil_constant=0)
+    angleDegTil_constant=0,
+    redeclare Data.PhotovoltaicModules.SiemensSolarM75S pvModuleData)
     annotation (Placement(transformation(extent={{-56,34},{-36,54}})));
   Modelica.Blocks.Math.UnitConversions.From_degC from_degC
     annotation (Placement(transformation(extent={{-60,68},{-52,76}})));
@@ -48,4 +48,4 @@ Documentation(info="<html>
 <p>This example generates IV curves with <a href=\"modelica://BuildingSystems.Technologies.Photovoltaics.PVModuleComplex\">BuildingSystems.Technologies.Photovoltaics.PVModuleComplex</a>. </p>
 </html>", revisions="<html>
 </html>"));
-end IVCurveGeneration;
+end IVCurveGenerator;
