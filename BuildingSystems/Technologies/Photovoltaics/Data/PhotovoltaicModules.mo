@@ -327,7 +327,7 @@ package PhotovoltaicModules
     height = 1.195,
     width = 0.545,
     Ik0 = 5.9,
-    Ul0 = 22.32,
+    Ul0 = 22.74,
     tIk0 = 1.659,
     tUl0 = -0.060,
     Eg = 1.107);

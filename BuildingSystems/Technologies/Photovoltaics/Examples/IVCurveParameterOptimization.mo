@@ -68,7 +68,7 @@ equation
     Text(extent={{-60,8},{-60,4}},  lineColor={0,0,255},fontSize=22,
           textString="Model to run with GenOpt to calculate 
 optimized PV module parameters.")}),
-    experiment(StopTime=22.73),
+    experiment(StopTime=22.74),
     __Dymola_Commands(file=
           "Resources/Scripts/Dymola/Technologies/Photovoltaics/Examples/PVModuleParameterOpt.mos"
         "Simulate and plot"),

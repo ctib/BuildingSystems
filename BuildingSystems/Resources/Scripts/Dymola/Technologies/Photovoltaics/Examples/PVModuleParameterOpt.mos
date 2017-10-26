@@ -1,4 +1,4 @@
-simulateModel("BuildingSystems.Technologies.Photovoltaics.Examples.IVCurveParameterOptimization", stopTime=22.73, method="dassl", resultFile="IVCurveParameterOptimization");
+simulateModel("BuildingSystems.Technologies.Photovoltaics.Examples.IVCurveParameterOptimization", stopTime=22.74, method="dassl", resultFile="IVCurveParameterOptimization");
 removePlots();
 createPlot(
   id = 1,
