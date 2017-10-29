@@ -7,18 +7,18 @@ model IVCurveGenerator
     nModPar=1,
     nModSer=1,
     angleDegTil_constant=0,
-    redeclare Data.PhotovoltaicModules.SiemensSolarM75S pvModuleData)
+    redeclare Data.PhotovoltaicModules.SpectraVolt100M36S pvModuleData)
     annotation (Placement(transformation(extent={{-56,34},{-36,54}})));
   Modelica.Blocks.Math.UnitConversions.From_degC from_degC
     annotation (Placement(transformation(extent={{-60,68},{-52,76}})));
-  Modelica.Blocks.Sources.Ramp increasVoltage(height=pvField.pvModuleData.Ul0,
-      duration=pvField.pvModuleData.Ul0)
+  Modelica.Blocks.Sources.Ramp increasVoltage(
+      duration=pvField.pvModuleData.Ul0, height=pvField.pvModuleData.Ul0)
     "Increasing voltage until open circuit voltage"
     annotation (Placement(transformation(extent={{-22,46},{-30,54}})));
-  Climate.Sources.RadiationFixed constRadiation(IrrDir_constant=1000)
+  Climate.Sources.RadiationFixed constRadiation(IrrDir_constant=pvField.pvModuleData.ITot)
     "direct horizontal radiation on module surface"
     annotation (Placement(transformation(extent={{-80,52},{-64,68}})));
-  Modelica.Blocks.Sources.Constant constTemp(k=25)
+  Modelica.Blocks.Sources.Constant constTemp(k=pvField.pvModuleData.TCel)
     "Module temperature at test conditions"
     annotation (Placement(transformation(extent={{-76,68},{-68,76}})));
 equation
@@ -28,7 +28,7 @@ equation
       smooth=Smooth.None));
 
   connect(constTemp.y, from_degC.u) annotation (Line(points={{-67.6,72},{-60.8,
-          72},{-60.8,72}}, color={0,0,127}));
+          72}},            color={0,0,127}));
   connect(pvField.radiationPort, constRadiation.radiationPort) annotation (Line(
         points={{-46,52},{-46,52},{-46,60},{-67.2,60}}, color={244,125,35}));
   connect(increasVoltage.y, pvField.UField) annotation (Line(points={{-30.4,50},
@@ -42,7 +42,7 @@ and direct horizontal radiation
 ")}),
     experiment(StopTime=22.74),
     __Dymola_Commands(file=
-          "modelica://BuildingSystems/Resources/Scripts/Dymola/Technologies/Photovoltaics/Examples/IVCurveGeneration.mos"
+          "Resources/Scripts/Dymola/Technologies/Photovoltaics/Examples/IVCurveGenerator.mos"
         "Simulate and plot"),
 Documentation(info="<html>
 <p>This example generates IV curves with <a href=\"modelica://BuildingSystems.Technologies.Photovoltaics.PVModuleComplex\">BuildingSystems.Technologies.Photovoltaics.PVModuleComplex</a>. </p>

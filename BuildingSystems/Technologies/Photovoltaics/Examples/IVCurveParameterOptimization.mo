@@ -9,20 +9,17 @@ model IVCurveParameterOptimization
     angleDegTil_constant=0,
     redeclare Data.PhotovoltaicModules.SpectraVolt100M36S pvModuleData)
     annotation (Placement(transformation(extent={{-56,34},{-36,54}})));
-  BuildingSystems.Technologies.Photovoltaics.Data.PhotovoltaicIVCurves.SpectraVolt100M36S IVcurve_ref
-     "measured IV curve from data";
   Modelica.Blocks.Math.UnitConversions.From_degC from_degC
     annotation (Placement(transformation(extent={{-60,68},{-52,76}})));
-  Climate.Sources.RadiationFixed constRadiation(IrrDir_constant=IVcurve_ref.ITot)
+  Climate.Sources.RadiationFixed constRadiation(IrrDir_constant=pvField.pvModuleData.ITot)
     "direct horizontal radiation on module surface"
     annotation (Placement(transformation(extent={{-80,52},{-64,68}})));
-  Modelica.Blocks.Sources.Constant constTemp(k=IVcurve_ref.TCel)
+  Modelica.Blocks.Sources.Constant constTemp(k=pvField.pvModuleData.TCel)
     "Module temperature at test conditions"
     annotation (Placement(transformation(extent={{-76,68},{-68,76}})));
-  Modelica.Blocks.Sources.TimeTable IVcurve_reference(table=IVcurve_ref.UI)
+  Modelica.Blocks.Sources.TimeTable IVcurve_reference(table=pvField.pvModuleData.UI)
     annotation (Placement(transformation(extent={{-24,18},{-32,26}})));
-  Modelica.Blocks.Sources.Constant constV(k=12)
-    "Module temperature at test conditions";
+
   Modelica.Blocks.Sources.Ramp increasVoltage(height=pvField.pvModuleData.Ul0,
       duration=pvField.pvModuleData.Ul0)
     "Increasing voltage until open circuit voltage"
@@ -37,7 +34,17 @@ model IVCurveParameterOptimization
     annotation (Placement(transformation(extent={{-52,26},{-56,30}})));
   Interfaces.GenOptInterface genOptInterface
     annotation (Placement(transformation(extent={{-72,18},{-64,26}})));
+//   Real sz[:] = size(pvField.pvModuleData.UI)
+//   "read the size of the UI table in PV Module data";
+//   Real Ik0 = pvField.pvModuleData.Ik0
+//   "get short circuit current from PV Moudule data";
+//   Real Ul0 = pvField.pvModuleData.Ul0
+//   "get open circuit voltage from PV Module data";
 equation
+//   if sz[1] < 1 then pvField.pvModuleData.UI=[0,Ik0;Ul0,0];
+//   else pvField.pvModuleData.UI=pvField.pvModuleData.UI;
+//   end if;
+
   connect(pvField.TAmb, from_degC.y) annotation (Line(
       points={{-44,52},{-44,72},{-51.6,72}},
       color={0,0,0},
