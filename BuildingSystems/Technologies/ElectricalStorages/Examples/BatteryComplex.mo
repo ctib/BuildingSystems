@@ -27,10 +27,12 @@ equation
     annotation (Line(points={{-44.4,60},{-55,60}}, color={0,0,127}));
   annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,0},
   {-20,100}}), graphics={
-    Text(extent={{-62,22},{-62,18}},lineColor={0,0,255},fontSize=22,
+    Text(extent={{-60,22},{-60,18}},lineColor={0,0,255},fontSize=22,
           textString="Test of the extended kinetic battery model KiBaM")}),
     experiment(StopTime=14400),
-    __Dymola_Commands(file="modelica://BuildingSystems/Resources/Scripts/Dymola/Technologies/ElectricalStorages/Examples/BatterySimple.mos" "Simulate and plot"),
+    __Dymola_Commands(file=
+          "Resources/Scripts/Dymola/Technologies/ElectricalStorages/Examples/BatteryComplex.mos"
+        "Simulate and plot"),
 Documentation(info="<html>
 <p> This example tests the implementation of
 <a href=\"modelica://BuildingSystems.Technologies.Electrica.Batteries\">
