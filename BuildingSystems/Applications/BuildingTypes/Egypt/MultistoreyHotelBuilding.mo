@@ -1,6 +1,5 @@
-within BuildingSystems.Applications.BuildingTypes.Germany;
-model SingleFamilyHouseEnEV2014
-  "Example of a German single family house regarding the German energy code EnEV2014"
+within BuildingSystems.Applications.BuildingTypes.Egypt;
+model MultistoreyHotelBuilding "Example of a typical Egyptian hotel building"
   extends Modelica.Icons.Example;
 
   BuildingSystems.Buildings.Ambient ambient(
@@ -9,31 +8,31 @@ model SingleFamilyHouseEnEV2014
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
 
   BuildingSystems.Buildings.BuildingTemplates.Building1Zone1DDistrict building(
-    heightWindow1=2.72,
-    heightWindow2=2.61,
-    heightWindow3=2.72,
-    heightWindow4=2.61,
-    widthWindow1=2.72,
-    widthWindow2=2.61,
-    widthWindow3=2.72,
-    widthWindow4=2.61,
+    heightWindow1=33.17,
+    heightWindow2=33.03,
+    heightWindow3=33.17,
+    heightWindow4=33.03,
+    widthWindow1=14.74,
+    widthWindow2=14.68,
+    widthWindow3=14.74,
+    widthWindow4=14.68,
     calcIdealLoads=true,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.OuterWallSingle2014 constructionWall1,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.OuterWallSingle2014 constructionWall2,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.OuterWallSingle2014 constructionWall3,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.OuterWallSingle2014 constructionWall4,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.RoofSingle2014 constructionCeiling,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.BasePlateSingle2014 constructionBottom,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.IntermediateWallSingle2014 constructionWallsInterior,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.IntermediateCeilingSingle2014 constructionCeilingsInterior,
-    width=8.91,
-    length=9.64,
-    heightSto=2.55,
-    nSto=2,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Transparent.HeatProtectionDoubleGlazingUVal14 constructionWindow1,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Transparent.HeatProtectionDoubleGlazingUVal14 constructionWindow2,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Transparent.HeatProtectionDoubleGlazingUVal14 constructionWindow3,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Transparent.HeatProtectionDoubleGlazingUVal14 constructionWindow4)
+    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.OuterWallMultistorey1958to1968 constructionWall1,
+    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.OuterWallMultistorey1958to1968 constructionWall2,
+    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.OuterWallMultistorey1958to1968 constructionWall3,
+    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.OuterWallMultistorey1958to1968 constructionWall4,
+    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.RoofMultistorey1958to1968 constructionCeiling,
+    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.BasePlateMultistorey1958to1968 constructionBottom,
+    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.IntermediateWallMultistorey1958to1968 constructionWallsInterior,
+    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.IntermediateCeilingMultistorey1958to1968 constructionCeilingsInterior,
+    width=22.31,
+    length=22.5,
+    heightSto=2.83,
+    nSto=22,
+    redeclare BuildingSystems.Buildings.Data.Constructions.Transparent.DoubleGlazing constructionWindow1,
+    redeclare BuildingSystems.Buildings.Data.Constructions.Transparent.DoubleGlazing constructionWindow2,
+    redeclare BuildingSystems.Buildings.Data.Constructions.Transparent.DoubleGlazing constructionWindow3,
+    redeclare BuildingSystems.Buildings.Data.Constructions.Transparent.DoubleGlazing constructionWindow4)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Modelica.Blocks.Sources.Constant TSetHeating(k=273.15 + 20.0)
     annotation (Placement(transformation(extent={{-2,-2},{2,2}},rotation=180,origin={18,14})));
@@ -60,11 +59,11 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   connect(building.TAirAmb, ambient.TAirRef) annotation (Line(
-      points={{6.2,9.8},{6.2,12},{-40,12},{-40,7},{-38.2,7}},
+      points={{6.2,9.8},{6.2,12},{-40,12},{-40,7},{-39,7}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(building.xAirAmb, ambient.xAir) annotation (Line(
-      points={{8.4,9.8},{8.4,14},{-42,14},{-42,5},{-38.2,5}},
+      points={{8.4,9.8},{8.4,14},{-42,14},{-42,5},{-39,5}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(building.airchange[1], airchange.y) annotation (Line(
@@ -73,14 +72,14 @@ equation
       smooth=Smooth.None));
 
   annotation(experiment(StartTime=0, StopTime=31536000),
-    __Dymola_Commands(file="modelica://BuildingSystems/Resources/Scripts/Dymola/Applications/BuildingTypes/Germany/SingleFamilyHouseEnEV2014.mos"
+    __Dymola_Commands(file="modelica://BuildingSystems/Resources/Scripts/Dymola/Applications/BuildingTypes/Germany/MultistoreyBuilding1958to1968.mos"
         "Simulate and plot"),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-60,-60},{60,60}}), graphics={Text(extent={{-52,-18},{52,-86}},lineColor={0,0,255},
-    textString="Example of a German single family house regarding the German energy code EnEV2014")}),
+    textString="Example of a typical German multistorey building from 1958 to 1968 based on IWU building typology")}),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-40},{100,40}})),
 Documentation(info="<html>
 <p>
-Example that simulates the energy demand of a single family house regarding the German energy code EnEV2014.
+Example that simulates the energy demand of a typical German multistorey building from 1958 to 1968 based on IWU building typology.
 </p>
 </html>",
 revisions="<html>
@@ -91,4 +90,4 @@ First implementation.
 </li>
 </ul>
 </html>"));
-end SingleFamilyHouseEnEV2014;
+end MultistoreyHotelBuilding;

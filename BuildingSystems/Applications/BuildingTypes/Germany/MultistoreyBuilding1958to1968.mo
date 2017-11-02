@@ -37,8 +37,9 @@ model MultistoreyBuilding1958to1968
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Modelica.Blocks.Sources.Constant TSetHeating(k=273.15 + 20.0)
     annotation (Placement(transformation(extent={{-2,-2},{2,2}},rotation=180,origin={18,14})));
-  Modelica.Blocks.Sources.Constant TSetCooling(k=273.15 + 100.0) // no heating demand calculation
+  Modelica.Blocks.Sources.Constant TSetCooling(k=273.15 + 100.0)
     annotation (Placement(transformation(extent={{-2,-2},{2,2}},rotation=180,origin={18,6})));
+                                                                 // no heating demand calculation
   Modelica.Blocks.Sources.Constant airchange(k=0.5)
      annotation (Placement(transformation(extent={{-2,-2},{2,2}},rotation=180,origin={18,-2})));
 equation

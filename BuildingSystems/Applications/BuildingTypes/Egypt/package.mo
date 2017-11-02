@@ -1,4 +1,6 @@
 within BuildingSystems.Applications.BuildingTypes;
-package Germany "Examples of German building types"
+package Egypt "Examples of Egyptian building types"
   extends Modelica.Icons.ExamplesPackage;
-end Germany;
+
+
+end Egypt;

@@ -1,6 +1,6 @@
-within BuildingSystems.Applications.BuildingTypes.Germany;
-model SingleFamilyHouseEnEV2014
-  "Example of a German single family house regarding the German energy code EnEV2014"
+within BuildingSystems.Applications.BuildingTypes.Egypt;
+model SingleFamilyHouse
+  "Example of an Egyptian single family house as often constructed in new urban communities"
   extends Modelica.Icons.Example;
 
   BuildingSystems.Buildings.Ambient ambient(
@@ -91,4 +91,4 @@ First implementation.
 </li>
 </ul>
 </html>"));
-end SingleFamilyHouseEnEV2014;
+end SingleFamilyHouse;
