@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea;
 record PolyamidFoil =
    BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialHygroThermalGeneral
     (
-   id=9,
+   id=10,
    name="Polyamid foil (PA-Folie)",
    rho=65,
    c=2300,
@@ -21,7 +21,7 @@ record PolyamidFoil =
    w95=-999,
    wF=0.618,
    porosity=0.001,
-   A=0.3, // guess value, not from MASEA data
+   A=0.3,
    myDry=4380.0,
    myMoistF=-999,
    moistSup=-999)

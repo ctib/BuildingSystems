@@ -1,7 +1,7 @@
 within BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea;
 record Softwood =
     BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialHygroThermalGeneral
-    ( id=12,
+    ( id=13,
       name="Softwood (Weichholz)",
       rho=400,
       c=1500,
@@ -20,7 +20,7 @@ record Softwood =
       w95=-999,
       wF=575.0,
       porosity=-999,
-      A=0.0017, // value of BuildingSystems.HAM.Data.HygroThermal.Masea.OakWood
+      A=0.0017,
       myDry=200.0,
       myMoistF=-999,
       moistSup=-999)

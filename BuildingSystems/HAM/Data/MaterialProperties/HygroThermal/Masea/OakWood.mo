@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea;
 record OakWood =
     BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialHygroThermalGeneral
     (
-    id=7,
+    id=8,
     name="Oak wood (Eichenholz alt)",
     rho=740,
     c=1600,
