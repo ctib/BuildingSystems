@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea;
 record PumiceConcrete =
     BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialHygroThermalGeneral
     (
-    id=11,
+    id=12,
     name="Pumice concrete (Bimsbeton)",
     rho=672,
     c=850,

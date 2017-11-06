@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.Thermal.Masea;
 record WeatherResistantLayer =
     BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialThermalGeneral
     (
-    id=13,
+    id=15,
     name="Weather resistant layer (Witterungsschutzbahn (sd=0,1m))",
     lambda=2.3,
     c=2300,

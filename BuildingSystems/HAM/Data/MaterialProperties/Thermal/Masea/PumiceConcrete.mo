@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.Thermal.Masea;
 record PumiceConcrete =
     BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialThermalGeneral
     (
-    id=10,
+    id=12,
     name="Pumice concrete (Bimsbeton)",
     lambda=0.14,
     c=850,

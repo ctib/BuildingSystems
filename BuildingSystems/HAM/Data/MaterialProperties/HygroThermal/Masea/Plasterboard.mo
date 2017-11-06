@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea;
 record Plasterboard =
     BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialHygroThermalGeneral
     (
-    id=9,
+    id=10,
     name="Plasterboard (Gipskartonplatte (Dichte 732 kg/m^3))",
     rho=732,
     c=1384,

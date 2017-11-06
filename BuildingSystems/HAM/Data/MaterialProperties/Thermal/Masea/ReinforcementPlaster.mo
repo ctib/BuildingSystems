@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.Thermal.Masea;
 record ReinforcementPlaster =
     BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialThermalGeneral
     (
-    id=11,
+    id=13,
     name="Reinforcement plaster (Mineralischer Armierungsputz)",
     lambda=0.641,
     c=850,

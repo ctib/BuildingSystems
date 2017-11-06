@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.Thermal.Masea;
 record PolyamidFoil =
     BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialThermalGeneral
     (
-    id=9,
+    id=11,
     name="Polyamid foil (PA-Folie)",
     lambda=2.9,
     c=2300,

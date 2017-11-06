@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.Thermal.Masea;
 record Softwood =
     BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialThermalGeneral
     (
-    id=12,
+    id=14,
     name="Softwood (Weichholz)",
     lambda=0.09,
     c=1500,

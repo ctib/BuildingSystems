@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea;
 record WoodFibreInsulation =
     BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialHygroThermalGeneral
     (
-    id=15,
+    id=16,
     name="Wood fibre insulation (Holzfaserdaemmplatte 1)",
     rho=168,
     c=1700,

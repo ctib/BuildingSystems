@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea;
 record ReinforcementPlaster =
   BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialHygroThermalGeneral
     (
-    id=12,
+    id=13,
     name="Reinforcement plaster (Mineralischer Armierungsputz)",
     rho=1475,
     c=850,
