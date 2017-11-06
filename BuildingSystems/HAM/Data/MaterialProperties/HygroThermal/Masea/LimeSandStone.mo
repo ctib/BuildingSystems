@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea;
 record LimeSandStone =
     BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialHygroThermalGeneral
     (
-    id=8,
+    id=9,
     name="Calcium silicate brick (Kalksandstein)",
     rho=1900.0,
     c=1000,

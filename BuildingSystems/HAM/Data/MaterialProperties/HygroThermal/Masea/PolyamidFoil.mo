@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea;
 record PolyamidFoil =
    BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialHygroThermalGeneral
     (
-   id=11,
+   id=12,
    name="Polyamid foil (PA-Folie)",
    rho=65,
    c=2300,

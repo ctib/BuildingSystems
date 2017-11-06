@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea;
 record LimePlaster =
     BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialHygroThermalGeneral
     (
-    id=7,
+    id=8,
     name="Gypsum-lime plaster (Kalkputz)",
     rho=1600.0,
     c=850,
@@ -10,8 +10,8 @@ record LimePlaster =
     sorTabY={0.0,20.0,30.0,50.0,70.0,180.0,250.0},
     myTabX={0.0,1.0},
     myTabY={7.0,7.0},
-    lambdaTabX={0.0,290.0},
-    lambdaTabY={1.0,1.933},
+    lambdaTabX={0.0,300.0},
+    lambdaTabY={0.7,1.933},
     dwwTabX={0.0,10,250.0},
     dwwTabY={0.0,1.5e-10,0.1e-7},
     dwsTabX={0.0,10,250.0},

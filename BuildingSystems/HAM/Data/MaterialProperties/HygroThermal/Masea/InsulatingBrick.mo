@@ -2,7 +2,7 @@ within BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea;
 record InsulatingBrick =
     BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialHygroThermalGeneral
     (
-    id=6,
+    id=7,
     name="Insulating brick (Hochdaemmender Ziegel 600)",
     rho=600,
     c=850,
