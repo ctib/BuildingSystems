@@ -181,10 +181,18 @@ model Ambient
   parameter Real cloudCover_constant(min = 0.0,max = 8.0, unit = "1") = 0.0
     "Cloud cover of the sky (used if cloudCoverSou=Parameter)"
     annotation (Dialog(tab="Advanced", group="Data source"));
+<<<<<<< HEAD
   Real cloudCover(min = 0.0,max = 8.0, unit = "1")
     "Cloud cover of the sky";
   input Modelica.Blocks.Interfaces.RealInput cloudCover_in(min = 0.0,max = 8.0, unit = "1") if
        cloudCoverSou == BuildingSystems.Buildings.Types.DataSource.Input
+=======
+  output Modelica.Blocks.Interfaces.RealOutput cloudCover(min = 0.0,max = 8.0, unit = "1")
+    "Cloud cover of the sky"
+    annotation (Placement(transformation(extent={{-86,-80},{-66,-60}}), iconTransformation(extent={{-80,-80},{-100,-60}})));
+  input Modelica.Blocks.Interfaces.RealInput cloudCover_in(min = 0.0,max = 8.0, unit = "1")
+    if cloudCoverSou == BuildingSystems.Buildings.Types.DataSource.Input
+>>>>>>> refs/remotes/origin/master
     "Cloud cover of the sky from input"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=90,origin={50,-74}),
       iconTransformation(extent={{10,-10},{-10,10}},rotation=270,origin={50,-90})));
@@ -328,6 +336,11 @@ you will find a short guide, which describes a Python based generation of NetCDF
 </p>
 </html>", revisions="<html>
 <ul>
+<li>
+November 07, 2017 by Christoph Nytsch-Geusen:<br/>
+Output for cloud cover added.
+</li>
+<li>
 <li>
 April 4, 2017 by Christoph Nytsch-Geusen:<br/>
 Outputs for latitudeDeg, longitudeDeg and longitudeDeg0 added.

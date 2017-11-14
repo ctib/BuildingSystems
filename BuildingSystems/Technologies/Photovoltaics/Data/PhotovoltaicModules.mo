@@ -27,9 +27,9 @@ package PhotovoltaicModules
     parameter Modelica.SIunits.Resistance RPar
       "Parallel resistance";
     parameter Real tIk0
-      "Temperature coefficient for the short circuit current in mA/C";
+      "Temperature coefficient for the short circuit current in mA/K";
     parameter Real tUl0
-      "Temperature coefficient for the open circuit voltage in V/C";
+      "Temperature coefficient for the open circuit voltage in V/K";
     parameter Modelica.SIunits.Voltage Ul0
       "Open circuit voltage under standard conditions";
     parameter Modelica.SIunits.Length width
@@ -312,4 +312,23 @@ package PhotovoltaicModules
       tIk0 = 0.012,
       tUl0 = -0.298,
       Eg = 1.107);
+
+  /* Parameter Spectra Volt 100M36S */
+  record SpectraVolt100M36S =   DataSetPhotovoltaicModule (
+    PEl_nominal =  100.0,
+    RPar = 935.8011,
+    RSer = 0.006629844,
+    c1 = 0.005493984,
+    c2 = 0.00033398822,
+    cs1 = 1.4269971,
+    cs2 = 0.000504,
+    nCelSer = 36,
+    nCelPar = 1,
+    height = 1.195,
+    width = 0.545,
+    Ik0 = 5.9,
+    Ul0 = 22.32,
+    tIk0 = 1.659,
+    tUl0 = -0.060,
+    Eg = 1.107);
 end PhotovoltaicModules;

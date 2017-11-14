@@ -91,8 +91,8 @@ model Building1Zone0D
     final abs_2 = 0.0,
     final epsilon_1 = 0.9,
     final epsilon_2 = 0.0,
-    final width=1.0,
-    final height=AGro,
+    final width=sqrt(AGro),
+    final height=sqrt(AGro),
     nNodes={1},
     constructionData(
     final thickness =                {1.0}, material(
