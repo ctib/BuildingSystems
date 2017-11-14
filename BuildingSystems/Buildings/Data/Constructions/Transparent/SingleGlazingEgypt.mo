@@ -1,16 +1,15 @@
 within BuildingSystems.Buildings.Data.Constructions.Transparent;
-record HeatProtectionTripleGlazingUVal05 =
+record SingleGlazingEgypt =
     BuildingSystems.Buildings.Data.Constructions.TransparentConstruction (
-  final nPanes=3,
-  thickness={0.003,0.003,0.003},
-  UValGla = 0.5,
-  UValFra = 0.7,
-  g = 0.51)
- "Heat protection triple glazing with UValGla = 0.5 W/(m2.K) and g = 0.51"
+  final nPanes=1,
+  thickness={0.003},
+  UValGla = 6.25,
+  UValFra = 2.8,
+  g = 0.75) "Single glazing with UValGla = 6.25 W/(m2.K) and g = 0.75"
  annotation (
 Documentation(info="<html>
 <p>
-Parameter set for a generic window with heat protection triple glazing (U-value glass = 0.5 W/(m2.K)).
+Parameter set for a generic window with single glazing (U-value glass = 5.8 W/(m2.K)).
 </p>
 </html>", revisions="<html>
 <ul>
