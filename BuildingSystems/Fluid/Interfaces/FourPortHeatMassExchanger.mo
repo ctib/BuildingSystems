@@ -92,16 +92,6 @@ model FourPortHeatMassExchanger
 
   replaceable BuildingSystems.Fluid.MixingVolumes.MixingVolume vol2
     constrainedby
-<<<<<<< HEAD
-    BuildingSystems.Fluid.MixingVolumes.BaseClasses.PartialMixingVolume(
-    redeclare final package Medium = Medium2,
-    nPorts = 2,
-    V=m2_flow_nominal*tau2/rho2_nominal,
-    final allowFlowReversal=allowFlowReversal2,
-    mSenFac=1,
-    final m_flow_nominal = m2_flow_nominal,
-    energyDynamics=if tau2 > Modelica.Constants.eps
-=======
     BuildingSystems.Fluid.MixingVolumes.BaseClasses.MixingVolumeHeatPort(
         redeclare final package Medium = Medium2,
         nPorts = 2,
@@ -110,7 +100,6 @@ model FourPortHeatMassExchanger
         mSenFac=1,
         final m_flow_nominal = m2_flow_nominal,
         energyDynamics=if tau2 > Modelica.Constants.eps
->>>>>>> refs/remotes/origin/master
                          then energyDynamics else
                          Modelica.Fluid.Types.Dynamics.SteadyState,
         massDynamics=if tau2 > Modelica.Constants.eps
