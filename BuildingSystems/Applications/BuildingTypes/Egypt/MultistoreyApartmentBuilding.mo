@@ -4,43 +4,57 @@ model MultistoreyApartmentBuilding
   extends Modelica.Icons.Example;
 
   BuildingSystems.Buildings.Ambient ambient(
-    nSurfaces=building.nSurfacesAmbient,
-    redeclare BuildingSystems.Climate.WeatherDataMeteonorm.WeatherDataFile_Germany_Berlin weatherDataFile)
+    nSurfaces=building.nSurfacesAmbient, redeclare
+      Climate.WeatherDataMeteonorm.WeatherDataFile_Egypt_ElGouna
+      weatherDataFile)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
 
   BuildingSystems.Buildings.BuildingTemplates.Building1Zone1DDistrict building(
-    heightWindow1=33.17,
-    heightWindow2=33.03,
-    heightWindow3=33.17,
-    heightWindow4=33.03,
-    widthWindow1=14.74,
-    widthWindow2=14.68,
-    widthWindow3=14.74,
-    widthWindow4=14.68,
     calcIdealLoads=true,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.OuterWallMultistorey1958to1968 constructionWall1,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.OuterWallMultistorey1958to1968 constructionWall2,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.OuterWallMultistorey1958to1968 constructionWall3,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.OuterWallMultistorey1958to1968 constructionWall4,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.RoofMultistorey1958to1968 constructionCeiling,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.BasePlateMultistorey1958to1968 constructionBottom,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.IntermediateWallMultistorey1958to1968 constructionWallsInterior,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Thermal.IntermediateCeilingMultistorey1958to1968 constructionCeilingsInterior,
-    width=22.31,
-    length=22.5,
-    heightSto=2.83,
-    nSto=22,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Transparent.DoubleGlazing constructionWindow1,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Transparent.DoubleGlazing constructionWindow2,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Transparent.DoubleGlazing constructionWindow3,
-    redeclare BuildingSystems.Buildings.Data.Constructions.Transparent.DoubleGlazing constructionWindow4)
+    heightSto=2.7,
+    nSto=12,
+    redeclare Buildings.Data.Constructions.Thermal.OuterWallMultistoreyEgypt
+      constructionWall1,
+    redeclare Buildings.Data.Constructions.Thermal.OuterWallMultistoreyEgypt
+      constructionWall2,
+    redeclare Buildings.Data.Constructions.Thermal.OuterWallMultistoreyEgypt
+      constructionWall3,
+    redeclare Buildings.Data.Constructions.Thermal.OuterWallMultistoreyEgypt
+      constructionWall4,
+    redeclare Buildings.Data.Constructions.Thermal.RoofMultistoreyEgypt
+      constructionCeiling,
+    redeclare Buildings.Data.Constructions.Thermal.BasePlateMultistoreyEgypt
+      constructionBottom,
+    redeclare
+      Buildings.Data.Constructions.Thermal.IntermediateWallMultistoreyEgypt
+      constructionWallsInterior,
+    redeclare Buildings.Data.Constructions.Thermal.IntermediateCeilingEgypt
+      constructionCeilingsInterior,
+    widthWindow1=11.9,
+    heightWindow1=18,
+    redeclare Buildings.Data.Constructions.Transparent.SingleGlazingEgypt
+      constructionWindow1,
+    widthWindow2=6.8,
+    heightWindow2=18,
+    redeclare Buildings.Data.Constructions.Transparent.SingleGlazingEgypt
+      constructionWindow2,
+    widthWindow3=11.9,
+    heightWindow3=18,
+    redeclare Buildings.Data.Constructions.Transparent.SingleGlazingEgypt
+      constructionWindow3,
+    widthWindow4=6.8,
+    heightWindow4=28,
+    redeclare Buildings.Data.Constructions.Transparent.SingleGlazingEgypt
+      constructionWindow4,
+    width=29.08,
+    length=17.52)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Modelica.Blocks.Sources.Constant TSetHeating(k=273.15 + 20.0)
     annotation (Placement(transformation(extent={{-2,-2},{2,2}},rotation=180,origin={18,14})));
-  Modelica.Blocks.Sources.Constant TSetCooling(k=273.15 + 100.0)
+  Modelica.Blocks.Sources.Constant TSetCooling(k=273.15 + 24)
     annotation (Placement(transformation(extent={{-2,-2},{2,2}},rotation=180,origin={18,6})));
                                                                  // no heating demand calculation
-  Modelica.Blocks.Sources.Constant airchange(k=0.5)
+  Modelica.Blocks.Sources.Constant airchange(k=0.28)
      annotation (Placement(transformation(extent={{-2,-2},{2,2}},rotation=180,origin={18,-2})));
 equation
    connect(ambient.toSurfacePorts, building.toAmbientSurfacesPorts) annotation (Line(
@@ -60,11 +74,11 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   connect(building.TAirAmb, ambient.TAirRef) annotation (Line(
-      points={{6.2,9.8},{6.2,12},{-40,12},{-40,7},{-38.2,7}},
+      points={{6.2,9.8},{6.2,12},{-40,12},{-40,7},{-39,7}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(building.xAirAmb, ambient.xAir) annotation (Line(
-      points={{8.4,9.8},{8.4,14},{-42,14},{-42,5},{-38.2,5}},
+      points={{8.4,9.8},{8.4,14},{-42,14},{-42,5},{-39,5}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(building.airchange[1], airchange.y) annotation (Line(
@@ -73,10 +87,14 @@ equation
       smooth=Smooth.None));
 
   annotation(experiment(StartTime=0, StopTime=31536000),
-    __Dymola_Commands(file="modelica://BuildingSystems/Resources/Scripts/Dymola/Applications/BuildingTypes/Germany/MultistoreyBuilding1958to1968.mos"
+    __Dymola_Commands(file=
+          "Resources/Scripts/Dymola/Applications/BuildingTypes/Egypt/MultistoreyBuildingEgypt.mos"
         "Simulate and plot"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-60,-60},{60,60}}), graphics={Text(extent={{-52,-18},{52,-86}},lineColor={0,0,255},
-    textString="Example of a typical German multistorey building from 1958 to 1968 based on IWU building typology")}),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-60,-60},{60,60}}), graphics={Text(extent={{
+              -52,-16},{52,-84}},                                                                                               lineColor=
+              {0,0,255},
+          textString="Example of a typical Egyptian multistorey building based on
+ \"Benchmark models for the Egyptian residential sector\" by S. Attia et al (2012)")}),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-40},{100,40}})),
 Documentation(info="<html>
 <p>
