@@ -4,7 +4,7 @@ record SingleGlazingEgypt =
   final nPanes=1,
   thickness={0.003},
   UValGla = 6.25,
-  UValFra = 2.8,
+  UValFra = 2.0,
   g = 0.75) "Single glazing with UValGla = 6.25 W/(m2.K) and g = 0.75"
  annotation (
 Documentation(info="<html>

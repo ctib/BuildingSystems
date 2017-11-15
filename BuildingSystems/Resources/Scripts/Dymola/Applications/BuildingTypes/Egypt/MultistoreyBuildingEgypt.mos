@@ -1,4 +1,4 @@
-simulateModel("BuildingSystems.Applications.BuildingTypes.Egypt.MultistoreyApartmentBuilding", stopTime=31536000, method="dassl", resultFile="MultistoreyApartmentBuilding");
+simulateModel("BuildingSystems.Applications.BuildingTypes.Egypt.MultistoreyApartmentBuilding", stopTime=31536000, numberOfIntervals=8760, method="dassl", resultFile="MultistoreyApartmentBuilding");
 removePlots();
 createPlot(
   id = 1,

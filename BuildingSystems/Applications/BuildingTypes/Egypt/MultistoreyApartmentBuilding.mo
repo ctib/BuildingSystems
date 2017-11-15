@@ -53,8 +53,8 @@ model MultistoreyApartmentBuilding
     annotation (Placement(transformation(extent={{-2,-2},{2,2}},rotation=180,origin={18,14})));
   Modelica.Blocks.Sources.Constant TSetCooling(k=273.15 + 24)
     annotation (Placement(transformation(extent={{-2,-2},{2,2}},rotation=180,origin={18,6})));
-                                                                 // no heating demand calculation
-  Modelica.Blocks.Sources.Constant airchange(k=0.28)
+
+  Modelica.Blocks.Sources.Constant airchange(k=0.171)
      annotation (Placement(transformation(extent={{-2,-2},{2,2}},rotation=180,origin={18,-2})));
 equation
    connect(ambient.toSurfacePorts, building.toAmbientSurfacesPorts) annotation (Line(
@@ -86,7 +86,7 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
 
-  annotation(experiment(StartTime=0, StopTime=31536000),
+  annotation(experiment(StopTime=3.1536e+007, __Dymola_NumberOfIntervals=8760),
     __Dymola_Commands(file=
           "Resources/Scripts/Dymola/Applications/BuildingTypes/Egypt/MultistoreyBuildingEgypt.mos"
         "Simulate and plot"),

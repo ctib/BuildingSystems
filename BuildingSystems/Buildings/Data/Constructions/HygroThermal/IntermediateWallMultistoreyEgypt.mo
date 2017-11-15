@@ -3,7 +3,7 @@ record IntermediateWallMultistoreyEgypt =
     BuildingSystems.Buildings.Data.Constructions.OpaqueHygroThermalConstruction
     (
   final nLayers=3,
-  thickness={0.025,0.24,0.025},
+  thickness={0.026,0.22,0.026},
   material={BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea.LimePlaster(),
             BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea.LimeSandStone(),
             BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea.LimePlaster()})

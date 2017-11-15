@@ -3,7 +3,7 @@ record RoofMultistoreyEgypt =
     BuildingSystems.Buildings.Data.Constructions.OpaqueHygroThermalConstruction
     (
   final nLayers=3,
-  thickness={0.02,0.3,0.02},
+  thickness={0.01,0.24,0.01},
   material={BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea.LimePlaster(),
             BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea.Concrete(),
             BuildingSystems.HAM.Data.MaterialProperties.HygroThermal.Masea.LimePlaster()})
