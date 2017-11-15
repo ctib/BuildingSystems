@@ -1,6 +1,6 @@
 within BuildingSystems.HAM.Data.MaterialProperties.Thermal.Masea;
 record LimePlaster =
-    BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialHygroThermalGeneral
+    BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialThermalGeneral
     (
     id=7,
     name="Gypsum-lime plaster (Kalkputz)",

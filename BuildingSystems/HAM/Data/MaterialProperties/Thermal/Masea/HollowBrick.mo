@@ -1,6 +1,6 @@
 within BuildingSystems.HAM.Data.MaterialProperties.Thermal.Masea;
 record HollowBrick =
-    BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialHygroThermalGeneral
+    BuildingSystems.HAM.Data.MaterialProperties.BaseClasses.MaterialThermalGeneral
     (
     id=6,
     name="Perforrated hollow brick (Hochlochziegel)",
