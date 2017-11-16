@@ -5,7 +5,7 @@ model MultistoreyApartmentBuilding
 
   BuildingSystems.Buildings.Ambient ambient(
     nSurfaces=building.nSurfacesAmbient, redeclare
-      Climate.WeatherDataMeteonorm.WeatherDataFile_Egypt_ElGouna
+      Climate.WeatherDataMeteonorm.WeatherDataFile_Egypt_Hurguada
       weatherDataFile)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
 
