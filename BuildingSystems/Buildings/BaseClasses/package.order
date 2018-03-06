@@ -1,3 +1,4 @@
+AirElementGeneral
 AirpathGeneral
 AirvolumeGeneral
 BuildingTemplate
@@ -11,5 +12,6 @@ SurfaceGeneral
 WallGeneral
 WallHygroThermalGeneral
 WallThermalGeneral
+WindowGeneral
 ZoneTemplateGeneral
 OpaqueConstruction

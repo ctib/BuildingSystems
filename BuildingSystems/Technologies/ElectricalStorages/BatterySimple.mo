@@ -31,7 +31,7 @@ model BatterySimple
     "Maximal discharging power of battery";
   final parameter Modelica.SIunits.Power PCharge_max = nBat*batteryData.PCharge_max
     "Maximal charging power of battery";
-  final parameter Real fDis = batteryData.fDis
+  final parameter Real fDis(unit="1/s") = batteryData.fDis
     "Loss factor of the battery";
   parameter Real SOC_start = 0.5
     "Start charge level of the battery"
@@ -74,11 +74,15 @@ equation
 
   PNet = PCharge - PLoad;
 
-  PChargeEff = if PNet > 0.0 then 0.5 * (1.0 - Modelica.Math.tanh(100000.0*(SOC-1.0)))
-    * BuildingSystems.Utilities.SmoothFunctions.softcut_upper(PNet*etaCharge,PCharge_max,0.001) else 0.0;
+  PChargeEff = if PNet > 0.0 and EAva > c*E_nominal then k*(h2-h1)
+               elseif PNet > 0.0 and EAva <= c*E_nominal then 0.5 * (1.0 - Modelica.Math.tanh(100000.0*(SOC-1.0)))
+                 * BuildingSystems.Utilities.SmoothFunctions.softcut_upper(PNet*etaCharge,PCharge_max,0.001)
+               else 0.0;
 
-  PLoadEff = if PNet <= 0.0 then 0.5 * (1.0 + Modelica.Math.tanh(100000.0*(SOC-1.1*SOC_min)))
-    * BuildingSystems.Utilities.SmoothFunctions.softcut_upper(-PNet/etaLoad,PLoad_max,0.001) else 0.0;
+  PLoadEff = if PNet <= 0.0 and EAva < 0.0 then k*(h2-h1)
+             elseif PNet <= 0.0 and EAva >= 0.0 then 0.5 * (1.0 + Modelica.Math.tanh(100000.0*(SOC-1.1*SOC_min)))
+               * BuildingSystems.Utilities.SmoothFunctions.softcut_upper(-PNet/etaLoad,PLoad_max,0.001)
+            else 0.0;
 
   PGrid = if PNet > 0.0 then PNet - PChargeEff/etaCharge
     else PNet + PLoadEff*etaLoad;
@@ -118,8 +122,14 @@ equation
   revisions="<html>
   <ul>
   <li>
+  November 11, 2017, by Christoph Nytsch-Geusen:<br/>
+  Loss factor to bound energy storage shifted and plausible
+  limitations of PChargeEff and PLoadEff added.
+  </li>
+  <li>
   May 31, 2017, by Christoph Nytsch-Geusen:<br/>
   Integration of the Kinetic Battery Model.
+  </li>
   <li>
   June 6, 2016, by Christoph Nytsch-Geusen:<br/>
   First implementation.
